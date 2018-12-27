@@ -41,18 +41,16 @@ public class Friends.Application : Gtk.Application {
 
         main_window = new MainWindow (this);
 
-        var window_height = settings.get_int ("window-height");
-        var window_width = settings.get_int ("window-width");
-        var window_x = settings.get_int ("window-x");
-        var window_y = settings.get_int ("window-y");
+        int window_x, window_y;
+        var rect = Gtk.Allocation ();
+
+        settings.get ("window-position", "(ii)", out window_x, out window_y);
+        settings.get ("window-size", "(ii)", out rect.width, out rect.height);
 
         if (window_x != -1 ||  window_y != -1) {
             main_window.move (window_x, window_y);
         }
 
-        var rect = Gtk.Allocation ();
-        rect.height = window_height;
-        rect.width = window_width;
         main_window.set_allocation (rect);
 
         if (settings.get_boolean ("window-maximized")) {

@@ -19,6 +19,7 @@
 */
 
 public class Friends.MainWindow : Gtk.ApplicationWindow {
+    private uint configure_id;
     private Folks.IndividualAggregator individual_aggregator;
     private Gtk.ListBox listbox;
 
@@ -73,21 +74,29 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
     }
 
     public override bool configure_event (Gdk.EventConfigure event) {
-        if (is_maximized) {
-            Application.settings.set_boolean ("window-maximized", true);
-        } else {
-            Application.settings.set_boolean ("window-maximized", false);
-
-            Gtk.Allocation rect;
-            get_allocation (out rect);
-            Application.settings.set_int ("window-height", rect.height);
-            Application.settings.set_int ("window-width", rect.width);
-
-            int root_x, root_y;
-            get_position (out root_x, out root_y);
-            Application.settings.set_int ("window-x", root_x);
-            Application.settings.set_int ("window-y", root_y);
+        if (configure_id != 0) {
+            GLib.Source.remove (configure_id);
         }
+
+        configure_id = Timeout.add (100, () => {
+            configure_id = 0;
+
+            if (is_maximized) {
+                Friends.Application.settings.set_boolean ("window-maximized", true);
+            } else {
+                Friends.Application.settings.set_boolean ("window-maximized", false);
+
+                Gdk.Rectangle rect;
+                get_allocation (out rect);
+                Friends.Application.settings.set ("window-size", "(ii)", rect.width, rect.height);
+
+                int root_x, root_y;
+                get_position (out root_x, out root_y);
+                Friends.Application.settings.set ("window-position", "(ii)", root_x, root_y);
+            }
+
+            return false;
+        });
 
         return base.configure_event (event);
     }
