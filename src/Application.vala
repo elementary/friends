@@ -19,7 +19,7 @@
 */
 
 public class Friends.Application : Gtk.Application {
-    // public static GLib.Settings settings;
+    public static GLib.Settings settings;
     private MainWindow main_window;
 
     public Application () {
@@ -29,9 +29,9 @@ public class Friends.Application : Gtk.Application {
         );
     }
 
-    // static construct {
-    //     settings = new Settings ("com.github.danrabbit.lookbook");
-    // }
+    static construct {
+        settings = new Settings ("io.elementary.friends");
+    }
 
     protected override void activate () {
         if (get_windows ().length () > 0) {
@@ -41,25 +41,23 @@ public class Friends.Application : Gtk.Application {
 
         main_window = new MainWindow (this);
 
-        // var window_height = settings.get_int ("window-height");
-        // var window_width = settings.get_int ("window-width");
-        // var window_x = settings.get_int ("window-x");
-        // var window_y = settings.get_int ("window-y");
+        var window_height = settings.get_int ("window-height");
+        var window_width = settings.get_int ("window-width");
+        var window_x = settings.get_int ("window-x");
+        var window_y = settings.get_int ("window-y");
 
-        // if (window_x != -1 ||  window_y != -1) {
-        //     main_window.move (window_x, window_y);
-        // }
+        if (window_x != -1 ||  window_y != -1) {
+            main_window.move (window_x, window_y);
+        }
 
-        // if (window_height != -1 ||  window_width != -1) {
-        //     var rect = Gtk.Allocation ();
-        //     rect.height = window_height;
-        //     rect.width = window_width;
-        //     main_window.set_allocation (rect);
-        // }
+        var rect = Gtk.Allocation ();
+        rect.height = window_height;
+        rect.width = window_width;
+        main_window.set_allocation (rect);
 
-        // if (settings.get_boolean ("window-maximized")) {
-        //     main_window.maximize ();
-        // }
+        if (settings.get_boolean ("window-maximized")) {
+            main_window.maximize ();
+        }
 
         main_window.show_all ();
 
