@@ -95,9 +95,36 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
 
     [CCode (instance_pos = -1)]
     private int sort_function (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2) {
-        var name1 = ((Friends.ContactRow) row1).individual.display_name;
-        var name2 = ((Friends.ContactRow) row2).individual.display_name;
-        return name1.collate (name2);
+        var name1 = ((Friends.ContactRow) row1).individual.structured_name;
+        var name2 = ((Friends.ContactRow) row2).individual.structured_name;
+
+        if (name1 != null) {
+            if (name2 == null) {
+                return -1;
+            } else if (name1.family_name != "") {
+                if (name2.family_name == "") {
+                    if (name2.given_name != "") {
+                        return name1.family_name.collate (name2.given_name);
+                    } else {
+                        return -1;
+                    }
+                } else {
+                    return name1.family_name.collate (name2.family_name);
+                }
+            } else if (name2.family_name != "") {
+                if (name1.given_name != "") {
+                    return name1.given_name.collate (name2.family_name);
+                } else {
+                    return 1;
+                }
+            }
+        } else if (name2 != null) {
+            return 1;
+        }
+
+        var displayname1 = ((Friends.ContactRow) row1).individual.display_name;
+        var displayname2 = ((Friends.ContactRow) row2).individual.display_name;
+        return displayname1.collate (displayname2);
     }
 
     public override bool configure_event (Gdk.EventConfigure event) {
