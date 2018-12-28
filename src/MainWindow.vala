@@ -46,6 +46,7 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         listbox.activate_on_single_click = true;
         listbox.selection_mode = Gtk.SelectionMode.SINGLE;
         listbox.set_filter_func (filter_function);
+        listbox.set_header_func (header_function);
         listbox.set_sort_func (sort_function);
 
         var scrolledwindow = new Gtk.ScrolledWindow (null, null);
@@ -91,6 +92,38 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         }
 
         return false;
+    }
+
+    private void header_function (Gtk.ListBoxRow row1, Gtk.ListBoxRow? row2) {
+        var name1 = ((Friends.ContactRow) row1).individual.structured_name;
+        Folks.StructuredName name2 = null;
+        if (row2 != null) {
+            name2 = ((Friends.ContactRow) row2).individual.structured_name;
+        }
+
+        string header_string = null;
+        if (name1 != null) {
+            if (name1.family_name != "") {
+                header_string = name1.family_name.substring (0, 1).up ();
+            } else {
+                header_string = name1.given_name.substring (0, 1).up ();
+            }
+        } else if (name2 != null) {
+            header_string = _("#");
+        }
+
+        if (name2 != null) {
+            if (name2.family_name != "" && name2.family_name.substring (0, 1).up () == header_string) {
+                return;
+            } else if (name2.given_name != "" && name2.given_name.substring (0, 1).up () == header_string) {
+                return;
+            }
+        }
+
+        if (header_string != null) {
+            var header_label = new Granite.HeaderLabel (header_string);
+            row1.set_header (header_label);
+        }
     }
 
     [CCode (instance_pos = -1)]
