@@ -22,6 +22,7 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
     private uint configure_id;
     private Folks.IndividualAggregator individual_aggregator;
     private Gtk.ListBox listbox;
+    private Gtk.SearchEntry search_entry;
 
     public MainWindow (Gtk.Application application) {
         Object (
@@ -32,18 +33,33 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
     }
 
     construct {
+        search_entry = new Gtk.SearchEntry ();
+        search_entry.hexpand = true;
+        search_entry.placeholder_text = _("Search Friends");
+        search_entry.valign = Gtk.Align.CENTER;
+
+        var headerbar = new Gtk.HeaderBar ();
+        headerbar.custom_title = search_entry;
+        headerbar.show_close_button = true;
+
         listbox = new Gtk.ListBox ();
         listbox.activate_on_single_click = true;
         listbox.selection_mode = Gtk.SelectionMode.SINGLE;
+        listbox.set_filter_func (filter_function);
         listbox.set_sort_func (sort_function);
 
         var scrolledwindow = new Gtk.ScrolledWindow (null, null);
         scrolledwindow.add (listbox);
 
         add (scrolledwindow);
+        set_titlebar (headerbar);
 
         individual_aggregator = Folks.IndividualAggregator.dup ();
         load_contacts.begin ();
+
+        search_entry.search_changed.connect (() => {
+            listbox.invalidate_filter ();
+        });
     }
 
     private async void load_contacts () {
@@ -64,6 +80,17 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         } catch (Error e) {
             critical (e.message);
         }
+    }
+
+    [CCode (instance_pos = -1)]
+    private bool filter_function (Gtk.ListBoxRow row) {
+        var search_term = search_entry.text.down ();
+
+        if (search_term in ((Friends.ContactRow) row).individual.display_name.down ()) {
+            return true;
+        }
+
+        return false;
     }
 
     [CCode (instance_pos = -1)]
