@@ -21,6 +21,8 @@
 public class Friends.ContactRow : Gtk.ListBoxRow {
     public Folks.Individual individual { get; construct; }
 
+    private Gtk.Button favorite_button;
+
     public ContactRow (Folks.Individual individual) {
         Object (individual: individual);
     }
@@ -28,9 +30,30 @@ public class Friends.ContactRow : Gtk.ListBoxRow {
     construct {
         var individual_name = new Gtk.Label (individual.display_name);
         individual_name.ellipsize = Pango.EllipsizeMode.MIDDLE;
-        individual_name.margin = 6;
+        individual_name.hexpand = true;
         individual_name.xalign = 0;
 
-        add (individual_name);
+        favorite_button = new Gtk.Button.from_icon_name ("list-add-symbolic");
+        favorite_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+
+        var grid = new Gtk.Grid ();
+        grid.column_spacing = 6;
+        grid.margin = 6;
+        grid.add (individual_name);
+        grid.add (favorite_button);
+
+        add (grid);
+
+        if (individual.is_favourite) {
+            update_favorite_icon ();
+        }
+
+        favorite_button.clicked.connect (() => {
+            update_favorite_icon ();
+        });
+    }
+
+    private void update_favorite_icon () {
+        favorite_button.destroy ();
     }
 }
