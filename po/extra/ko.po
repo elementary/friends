@@ -1,0 +1,42 @@
+# Korean translations for extra package.
+# Copyright (C) 2018 THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-27 16:06-0800\n"
+"PO-Revision-Date: 2018-12-27 16:06-0800\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: data/friends.appdata.xml.in:7 data/friends.desktop.in:3
+msgid "Friends"
+msgstr ""
+
+#: data/friends.appdata.xml.in:45
+msgid "elementary, Inc."
+msgstr ""
+
+#: data/friends.desktop.in:4
+msgid "Find and connect with contacts"
+msgstr ""
+
+#: data/friends.desktop.in:5
+msgid "Address Book"
+msgstr ""
+
+#: data/friends.desktop.in:7
+msgid "office-address-book"
+msgstr ""
+
+#: data/friends.desktop.in:8
+msgid "address;contacts;"
+msgstr ""

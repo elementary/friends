@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Friends
+Comment=Find and connect with contacts
+GenericName=Address Book
+Exec=io.elementary.friends
+Icon=office-address-book
+Keywords=address;contacts;
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=ContactManagement;Office;
