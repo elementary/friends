@@ -57,9 +57,17 @@ public class Friends.ContactRow : Gtk.ListBoxRow {
                     name_array += given_name;
                 }
 
-                name_array += "<b>%s</b>".printf (family_name);
+                if (family_name.@get (0).isalpha ()) {
+                    name_array += "<b>%s</b>".printf (family_name);
+                } else {
+                    name_array += family_name;
+                }
             } else if (given_name != "") {
-                name_array += "<b>%s</b>".printf (given_name);
+                if (given_name.@get (0).isalpha ()) {
+                    name_array += "<b>%s</b>".printf (given_name);
+                } else {
+                    name_array += given_name;
+                }
             }
 
             if (individual.structured_name.suffixes != "") {
