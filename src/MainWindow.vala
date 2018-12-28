@@ -84,9 +84,15 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
 
     [CCode (instance_pos = -1)]
     private bool filter_function (Gtk.ListBoxRow row) {
+        var individual = ((Friends.ContactRow) row).individual;
+
+        if (individual.structured_name == null && !individual.is_favourite) {
+            return false;
+        }
+
         var search_term = search_entry.text.down ();
 
-        if (search_term in ((Friends.ContactRow) row).individual.display_name.down ()) {
+        if (search_term in individual.display_name.down ()) {
             return true;
         }
 
