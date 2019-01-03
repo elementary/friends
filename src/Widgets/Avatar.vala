@@ -18,8 +18,19 @@
 */
 
 public class Friends.Avatar : Gtk.Grid {
+    /**
+     * The size in pixels to render the widget at. Avatars are always square
+     */
     public int pixel_size { get; construct set; }
+
+    /**
+     * The file name to load as the avatar image. Used with {@link Gdk.Pixbuf.from_file_at_scale}
+     */
     public string? icon_file { get; construct set; }
+
+    /**
+     * The full name of the individual (i.e. "John Doe") to use for generating initials
+     */
     public string full_name { get; construct set; }
 
     private Gtk.Label name_label;
