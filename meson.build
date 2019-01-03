@@ -16,6 +16,7 @@ executable(
     # asresources,
     'src/Application.vala',
     'src/MainWindow.vala',
+    'src/Widgets/Avatar.vala',
     'src/Widgets/ContactRow.vala',
     dependencies: [
         dependency('folks'),
