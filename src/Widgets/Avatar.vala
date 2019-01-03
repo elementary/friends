@@ -65,7 +65,6 @@ public class Friends.Avatar : Gtk.Grid {
         set_css_name (Granite.STYLE_CLASS_AVATAR);
 
         name_label = new Gtk.Label (get_initials ());
-        name_label.height_request = name_label.width_request = pixel_size - 2;
         name_label.halign = name_label.valign = Gtk.Align.CENTER;
         add (name_label);
 
@@ -91,16 +90,19 @@ public class Friends.Avatar : Gtk.Grid {
     }
 
     public override bool draw (Cairo.Context cr) {
+        unowned Gtk.StyleContext style_context = get_style_context ();
         height_request = width_request = pixel_size;
 
         if (icon_file == null || icon_file == "") {
+            var border = style_context.get_border (style_context.get_state ());
+
             name_label.label = get_initials ();
-            name_label.height_request = name_label.width_request = pixel_size - 2;
+            name_label.height_request = pixel_size - (border.top + border.bottom);
+            name_label.width_request = pixel_size - (border.left + border.right);
             return base.draw (cr);
         }
 
         try {
-            unowned Gtk.StyleContext style_context = get_style_context ();
             var size = pixel_size * get_scale_factor ();
             var border_radius = style_context.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, style_context.get_state ()).get_int ();
             var crop_radius = int.min (pixel_size / 2, border_radius * pixel_size / 100);
