@@ -26,11 +26,70 @@ public class Friends.ContactRow : Gtk.ListBoxRow {
     }
 
     construct {
-        var individual_name = new Gtk.Label (individual.display_name);
+        Granite.Widgets.Avatar avatar;
+
+        if (individual.avatar != null) {
+            try {
+                individual.avatar.load (32, null);
+                avatar = new Granite.Widgets.Avatar.from_file (individual.avatar.to_string (), 30);
+                avatar.margin_end = 3;
+            } catch (Error e) {
+                critical (e.message);
+            }
+        } else {
+            avatar = new Granite.Widgets.Avatar.with_default_icon (32);
+            avatar.margin_start = 1;
+        }
+
+        string display_name;
+        if (individual.structured_name != null) {
+            string[] name_array = {};
+
+            var family_name = individual.structured_name.family_name;
+            var given_name = individual.structured_name.given_name;
+
+            if (individual.structured_name.prefixes != "") {
+                name_array += individual.structured_name.prefixes;
+            }
+
+            if (family_name != "") {
+                if (given_name != "") {
+                    name_array += given_name;
+                }
+
+                if (family_name.@get (0).isalpha ()) {
+                    name_array += "<b>%s</b>".printf (family_name);
+                } else {
+                    name_array += family_name;
+                }
+            } else if (given_name != "") {
+                if (given_name.@get (0).isalpha ()) {
+                    name_array += "<b>%s</b>".printf (given_name);
+                } else {
+                    name_array += given_name;
+                }
+            }
+
+            if (individual.structured_name.suffixes != "") {
+                name_array += individual.structured_name.suffixes;
+            }
+
+            display_name = string.joinv (" ", name_array);
+        } else {
+            display_name = individual.display_name;
+        }
+
+        var individual_name = new Gtk.Label (display_name);
         individual_name.ellipsize = Pango.EllipsizeMode.MIDDLE;
-        individual_name.margin = 6;
+        individual_name.use_markup = true;
         individual_name.xalign = 0;
 
-        add (individual_name);
+        var grid = new Gtk.Grid ();
+        grid.column_spacing = 6;
+        grid.margin = 6;
+        grid.add (avatar);
+        grid.add (individual_name);
+
+        add (grid);
     }
 }
