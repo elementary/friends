@@ -1,3 +1,4 @@
 src/Application.vala
+src/IndividualView.vala
 src/MainWindow.vala
 src/Widgets/ContactRow.vala
