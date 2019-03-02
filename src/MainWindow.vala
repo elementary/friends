@@ -56,8 +56,8 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         var individual_view = new Friends.IndividualView ();
 
         var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-        paned.add1 (scrolledwindow);
-        paned.add2 (individual_view);
+        paned.pack1 (scrolledwindow, false, false);
+        paned.pack2 (individual_view, true, false);
 
         add (paned);
         set_titlebar (headerbar);
