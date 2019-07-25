@@ -53,14 +53,23 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         var scrolledwindow = new Gtk.ScrolledWindow (null, null);
         scrolledwindow.add (listbox);
 
-        var grid = new Gtk.Grid ();
-        grid.add (scrolledwindow);
+        var individual_view = new Friends.IndividualView ();
 
-        add (grid);
+        var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+        paned.pack1 (scrolledwindow, false, false);
+        paned.pack2 (individual_view, true, false);
+
+        add (paned);
         set_titlebar (headerbar);
 
         individual_aggregator = Folks.IndividualAggregator.dup ();
         load_contacts.begin ();
+
+        Friends.Application.settings.bind ("pane-position", paned, "position", GLib.SettingsBindFlags.DEFAULT);
+
+        listbox.row_selected.connect (() => {
+            individual_view.individual = ((Friends.ContactRow) listbox.get_selected_row ()).individual;
+        });
 
         search_entry.search_changed.connect (() => {
             listbox.invalidate_filter ();

@@ -17,6 +17,7 @@ executable(
     'src/Application.vala',
     'src/MainWindow.vala',
     'src/Widgets/Avatar.vala',
+    'src/IndividualView.vala',
     'src/Widgets/ContactRow.vala',
     dependencies: [
         dependency('folks'),
