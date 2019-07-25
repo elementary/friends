@@ -50,6 +50,15 @@ public class Friends.IndividualView : Gtk.Grid {
 
         add (stack);
 
+        individual_emails.row_activated.connect ((row) => {
+            var email = (Gtk.Label) row.get_child ();
+            try  {
+                GLib.AppInfo.launch_default_for_uri ("mailto:%s".printf (email.label), null);
+            } catch (Error e) {
+                critical (e.message);
+            }
+        });
+
         notify["individual"].connect (() => {
             if (individual != null) {
                 stack.visible_child = details_grid;
