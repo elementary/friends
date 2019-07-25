@@ -109,8 +109,27 @@ public class Friends.IndividualView : Gtk.Grid {
             }
 
             foreach (var email in individual.email_addresses) {
+                string description = _("email");
+                var parameter_values = email.get_parameter_values (Folks.AbstractFieldDetails.PARAM_TYPE);
+                if (parameter_values != null) {
+                    description = parameter_values.to_array ()[0];
+                }
+
+                var description_label = new Gtk.Label (description);
+                description_label.halign = Gtk.Align.START;
+
+                var address_label = new Gtk.Label ("<small>%s</small>".printf (email.value));
+                address_label.halign = Gtk.Align.START;
+                address_label.use_markup = true;
+                address_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+
+                var grid = new Gtk.Grid ();
+                grid.attach (description_label, 0, 0);
+                grid.attach (address_label, 0, 1);
+
                 var email_row = new Gtk.ModelButton ();
-                email_row.text = email.value;
+                email_row.get_child ().destroy ();
+                email_row.add (grid);
 
                 email_grid.add (email_row);
 
