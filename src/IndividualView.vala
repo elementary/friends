@@ -49,10 +49,13 @@ public class Friends.IndividualView : Gtk.Grid {
         email_button = new Gtk.MenuButton ();
         email_button.halign = Gtk.Align.CENTER;
         email_button.image = new Gtk.Image.from_icon_name ("mail-send-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+        email_button.tooltip_text = _("Send Email");
+        email_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
         var details_grid = new Gtk.Grid ();
         details_grid.halign = details_grid.valign = Gtk.Align.CENTER;
         details_grid.orientation = Gtk.Orientation.VERTICAL;
+        details_grid.row_spacing = 12;
         details_grid.add (individual_name);
         details_grid.add (email_button);
 
