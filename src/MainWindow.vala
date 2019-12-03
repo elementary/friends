@@ -77,7 +77,7 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         listbox.set_filter_func (filter_function);
         listbox.set_header_func (header_function);
         listbox.set_sort_func (sort_function);
-
+        
         unowned Gtk.StyleContext listbox_context = listbox.get_style_context ();
         listbox_context.add_class ("sidebar-header");
         listbox_context.add_provider (header_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -85,9 +85,20 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         var scrolledwindow = new Gtk.ScrolledWindow (null, null);
         scrolledwindow.add (listbox);
 
+        var add_button = new Gtk.Button.from_icon_name ("list-add-symbolic", Gtk.IconSize.MENU);
+        add_button.margin = 3;
+        add_button.tooltip_text = _("Add Contact");
+
+        var actionbar = new Gtk.ActionBar ();
+        actionbar.pack_start (add_button);
+
+        unowned Gtk.StyleContext actionbar_context = actionbar.get_style_context ();
+        actionbar_context.add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
+
         var pane_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         pane_box.pack_start (search_entry, false, false, 0);
         pane_box.pack_start (scrolledwindow, false, true, 0);
+        pane_box.pack_end (actionbar, false, true, 0);
 
         unowned Gtk.StyleContext pane_box_context = pane_box.get_style_context ();
         pane_box_context.add_class ("sidebar-header");
@@ -102,6 +113,9 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         set_titlebar (header_paned);
         add (paned);
 
+        unowned Gtk.StyleContext paned_context = paned.get_style_context ();
+        paned_context.add_provider (header_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
         // This must come after setting header_paned as the titlebar
         unowned Gtk.StyleContext header_paned_context = header_paned.get_style_context ();
         header_paned_context.remove_class ("titlebar");
@@ -112,7 +126,7 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
 
         Friends.Application.settings.bind ("pane-position", header_paned, "position", GLib.SettingsBindFlags.DEFAULT);
         Friends.Application.settings.bind ("pane-position", paned, "position", GLib.SettingsBindFlags.DEFAULT);
-
+        
         listbox.row_selected.connect (() => {
             individual_view.individual = ((Friends.ContactRow) listbox.get_selected_row ()).individual;
         });

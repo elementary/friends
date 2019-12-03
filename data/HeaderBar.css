@@ -19,7 +19,7 @@
 */
 
 .sidebar-header {
-    background-color: #fafafa;
+    background-color: @bg_color
 }
 
 .sidebar-header:dir(ltr) {
@@ -28,6 +28,10 @@
 
 .sidebar-header:dir(rtl) {
     border-top-left-radius: 0;
+}
+
+.individualview-header {
+    background-color: @base_color
 }
 
 .individualview-header:dir(ltr) {
@@ -39,7 +43,7 @@
 }
 
 paned {
-    background-color: @bg_color;
+    background-color: @base_color;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 }
