@@ -65,8 +65,9 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         header_paned.pack2 (individualview_header, true, false);
 
         search_entry = new Gtk.SearchEntry ();
-        search_entry.margin = 9;
-        search_entry.margin_top = 0;
+        search_entry.margin_start = search_entry.margin_end = 9;
+        search_entry.margin_top = 3;
+        search_entry.margin_bottom = 6;
         search_entry.hexpand = true;
         search_entry.placeholder_text = _("Search Friends");
         search_entry.valign = Gtk.Align.CENTER;
