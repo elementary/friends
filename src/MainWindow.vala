@@ -198,7 +198,7 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
 
         if (header_string != null) {
             var header_label = new Granite.HeaderLabel (header_string);
-            header_label.margin_start = 6;
+            header_label.margin_start = 3;
             row1.set_header (header_label);
         }
     }
