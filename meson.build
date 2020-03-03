@@ -5,15 +5,15 @@ i18n = import('i18n')
 
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()), language:'c')
 
-# asresources = gnome.compile_resources(
-#     'as-resources', 'data/' + meson.project_name() + '.gresource.xml',
-#     source_dir: 'data',
-#     c_name: 'as'
-# )
+gresource = gnome.compile_resources(
+    'gresource',
+    join_paths('data', 'gresource.xml'),
+    source_dir: 'data'
+)
 
 executable(
     meson.project_name(),
-    # asresources,
+    gresource,
     'src/Application.vala',
     'src/MainWindow.vala',
     'src/IndividualView.vala',
