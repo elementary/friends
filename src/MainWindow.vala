@@ -18,7 +18,7 @@
 *
 */
 
-public class Friends.MainWindow : Gtk.ApplicationWindow {
+public class Friends.MainWindow : Hdy.ApplicationWindow {
     private uint configure_id;
     private Folks.IndividualAggregator individual_aggregator;
     private Gtk.ListBox listbox;
@@ -33,36 +33,27 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
     }
 
     construct {
-        var header_provider = new Gtk.CssProvider ();
-        header_provider.load_from_resource ("io/elementary/friends/HeaderBar.css");
+        Hdy.init ();
 
-        var sidebar_header = new Gtk.HeaderBar ();
-        sidebar_header.decoration_layout = "close:";
-        sidebar_header.has_subtitle = false;
-        sidebar_header.show_close_button = true;
+        var sidebar_header = new Hdy.HeaderBar () {
+            decoration_layout = "close:",
+            has_subtitle = false,
+            show_close_button = true
+        };
 
         unowned Gtk.StyleContext sidebar_header_context = sidebar_header.get_style_context ();
-        sidebar_header_context.add_class ("sidebar-header");
-        sidebar_header_context.add_class ("titlebar");
         sidebar_header_context.add_class ("default-decoration");
         sidebar_header_context.add_class (Gtk.STYLE_CLASS_FLAT);
-        sidebar_header_context.add_provider (header_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-        var individualview_header = new Gtk.HeaderBar ();
-        individualview_header.has_subtitle = false;
-        individualview_header.decoration_layout = ":maximize";
-        individualview_header.show_close_button = true;
+        var individualview_header = new Hdy.HeaderBar () {
+            decoration_layout = ":maximize",
+            has_subtitle = false,
+            show_close_button = true
+        };
 
         unowned Gtk.StyleContext individualview_header_context = individualview_header.get_style_context ();
-        individualview_header_context.add_class ("individualview-header");
-        individualview_header_context.add_class ("titlebar");
         individualview_header_context.add_class ("default-decoration");
         individualview_header_context.add_class (Gtk.STYLE_CLASS_FLAT);
-        individualview_header_context.add_provider (header_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-        var header_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-        header_paned.pack1 (sidebar_header, false, false);
-        header_paned.pack2 (individualview_header, true, false);
 
         search_entry = new Gtk.SearchEntry ();
         search_entry.margin_start = search_entry.margin_end = 9;
@@ -80,42 +71,30 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         listbox.set_header_func (header_function);
         listbox.set_sort_func (sort_function);
 
-        unowned Gtk.StyleContext listbox_context = listbox.get_style_context ();
-        listbox_context.add_class ("sidebar-header");
-        listbox_context.add_provider (header_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-
         var scrolledwindow = new Gtk.ScrolledWindow (null, null);
         scrolledwindow.add (listbox);
 
-        var pane_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        pane_box.pack_start (search_entry, false, false, 0);
-        pane_box.pack_start (scrolledwindow, false, true, 0);
-
-        unowned Gtk.StyleContext pane_box_context = pane_box.get_style_context ();
-        pane_box_context.add_class ("sidebar-header");
-        pane_box_context.add_provider (header_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        var sidebar_grid = new Gtk.Grid ();
+        sidebar_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
+        sidebar_grid.attach (sidebar_header, 0, 0);
+        sidebar_grid.attach (search_entry, 0, 1);
+        sidebar_grid.attach (scrolledwindow, 0, 2);
 
         var individual_view = new Friends.IndividualView ();
 
+        var individual_grid = new Gtk.Grid ();
+        individual_grid.attach (individualview_header, 0, 0);
+        individual_grid.attach (individual_view, 0, 1);
+
         var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-        paned.pack1 (pane_box, false, false);
-        paned.pack2 (individual_view, true, false);
+        paned.pack1 (sidebar_grid, false, false);
+        paned.pack2 (individual_grid, true, false);
 
-        set_titlebar (header_paned);
         add (paned);
-
-        unowned Gtk.StyleContext paned_context = paned.get_style_context ();
-        paned_context.add_provider (header_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-        // This must come after setting header_paned as the titlebar
-        unowned Gtk.StyleContext header_paned_context = header_paned.get_style_context ();
-        header_paned_context.remove_class ("titlebar");
-        header_paned_context.add_provider (header_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         individual_aggregator = Folks.IndividualAggregator.dup ();
         load_contacts.begin ();
 
-        Friends.Application.settings.bind ("pane-position", header_paned, "position", GLib.SettingsBindFlags.DEFAULT);
         Friends.Application.settings.bind ("pane-position", paned, "position", GLib.SettingsBindFlags.DEFAULT);
 
         listbox.row_selected.connect (() => {
