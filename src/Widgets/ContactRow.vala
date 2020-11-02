@@ -86,7 +86,6 @@ public class Friends.ContactRow : Gtk.ListBoxRow {
 
         var grid = new Gtk.Grid ();
         grid.column_spacing = 6;
-        grid.margin = 6;
         grid.add (avatar);
         grid.add (individual_name);
 
