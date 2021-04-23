@@ -47,7 +47,7 @@ public class Friends.Application : Gtk.Application {
         settings.get ("window-position", "(ii)", out window_x, out window_y);
         settings.get ("window-size", "(ii)", out rect.width, out rect.height);
 
-        if (window_x != -1 ||  window_y != -1) {
+        if (window_x != -1 || window_y != -1) {
             main_window.move (window_x, window_y);
         }
 
@@ -63,7 +63,7 @@ public class Friends.Application : Gtk.Application {
 
         add_action (quit_action);
         set_accels_for_action ("app.quit", {"<Control>q"});
-        
+
         quit_action.activate.connect (() => {
             if (main_window != null) {
                 main_window.destroy ();
