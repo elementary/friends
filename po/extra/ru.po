@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-24 10:31+0000\n"
-"PO-Revision-Date: 2021-04-25 11:48+0000\n"
+"PO-Revision-Date: 2021-04-29 21:54+0000\n"
 "Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/friends/extra/ru/"
 ">\n"
@@ -38,7 +38,7 @@ msgstr "Адресная книга"
 
 #: data/friends.desktop.in:7
 msgid "office-address-book"
-msgstr ""
+msgstr "office-address-book"
 
 #: data/friends.desktop.in:8
 msgid "address;contacts;"
