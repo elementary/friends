@@ -11,7 +11,7 @@ Build-Depends: debhelper (>= 10.5.1),
                valac
 Standards-Version: 4.5.0
 
-Package: io.elementary.tasks
+Package: io.elementary.friends
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: Create and track the progress of tasks
+Description: See and contact your friends
