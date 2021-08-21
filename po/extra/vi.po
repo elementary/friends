@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-24 10:31+0000\n"
 "PO-Revision-Date: 2021-08-21 14:11+0000\n"
-"Last-Translator: Thien Bui <weblate.elementary@84436.ga>\n"
+"Last-Translator: ntmt2903 <seseiu17011@student.hcmiu.edu.vn>\n"
 "Language-Team: Vietnamese <https://l10n.elementary.io/projects/friends/extra/"
 "vi/>\n"
 "Language: vi\n"
@@ -25,7 +25,7 @@ msgstr "Bạn bè"
 
 #: data/friends.appdata.xml.in:45
 msgid "elementary, Inc."
-msgstr "Tập đoàn elementary"
+msgstr "Tập đoàn Elementary"
 
 #: data/friends.desktop.in:4
 msgid "Find and connect with contacts"
