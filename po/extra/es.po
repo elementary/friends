@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-24 10:31+0000\n"
-"PO-Revision-Date: 2021-04-29 21:54+0000\n"
-"Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
+"PO-Revision-Date: 2021-08-27 09:14+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/friends/extra/es/"
 ">\n"
 "Language: es\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: data/friends.appdata.xml.in:7 data/friends.desktop.in:3
 msgid "Friends"
-msgstr "Amigos"
+msgstr "Amistades"
 
 #: data/friends.appdata.xml.in:45
 msgid "elementary, Inc."
@@ -29,7 +29,7 @@ msgstr "elementary, Inc."
 
 #: data/friends.desktop.in:4
 msgid "Find and connect with contacts"
-msgstr "Encuentra contactos y conecta con ellos"
+msgstr "Encuentre contactos y conecte con ellos"
 
 #: data/friends.desktop.in:5
 msgid "Address Book"
@@ -41,4 +41,4 @@ msgstr "office-address-book"
 
 #: data/friends.desktop.in:8
 msgid "address;contacts;"
-msgstr "address;contacts;"
+msgstr "dirección;contactos;"
