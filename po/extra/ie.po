@@ -8,29 +8,32 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-24 10:31+0000\n"
-"PO-Revision-Date: 2018-12-27 16:06-0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-08-28 13:46+0000\n"
+"Last-Translator: Carmina16 <mistresssilvara@hotmail.com>\n"
+"Language-Team: Occidental <https://l10n.elementary.io/projects/friends/extra/"
+"ie/>\n"
 "Language: ie\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/friends.appdata.xml.in:7 data/friends.desktop.in:3
 msgid "Friends"
-msgstr ""
+msgstr "Amics"
 
 #: data/friends.appdata.xml.in:45
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
 
 #: data/friends.desktop.in:4
 msgid "Find and connect with contacts"
-msgstr ""
+msgstr "Trovar contactes e conexer con les"
 
 #: data/friends.desktop.in:5
 msgid "Address Book"
-msgstr ""
+msgstr "Adressarium"
 
 #: data/friends.desktop.in:7
 msgid "office-address-book"
@@ -38,4 +41,4 @@ msgstr ""
 
 #: data/friends.desktop.in:8
 msgid "address;contacts;"
-msgstr ""
+msgstr "adresse;contactes;contactos;"
