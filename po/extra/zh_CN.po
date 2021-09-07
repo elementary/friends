@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-24 10:31+0000\n"
-"PO-Revision-Date: 2021-09-07 09:36+0000\n"
+"PO-Revision-Date: 2021-09-07 11:25+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "friends/extra/zh_Hans/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: data/friends.appdata.xml.in:7 data/friends.desktop.in:3
 msgid "Friends"
-msgstr "朋友"
+msgstr "好友"
 
 #: data/friends.appdata.xml.in:45
 msgid "elementary, Inc."
