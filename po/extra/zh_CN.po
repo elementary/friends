@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-24 10:31+0000\n"
-"PO-Revision-Date: 2021-05-23 06:54+0000\n"
-"Last-Translator: imgradeone Yan <imgradeone@outlook.com>\n"
+"PO-Revision-Date: 2021-09-07 09:36+0000\n"
+"Last-Translator: XXTXTOP <xxtxtop@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "friends/extra/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: data/friends.appdata.xml.in:7 data/friends.desktop.in:3
 msgid "Friends"
-msgstr ""
+msgstr "朋友"
 
 #: data/friends.appdata.xml.in:45
 msgid "elementary, Inc."
@@ -42,4 +42,4 @@ msgstr ""
 
 #: data/friends.desktop.in:8
 msgid "address;contacts;"
-msgstr ""
+msgstr "地址；联系方式；"
