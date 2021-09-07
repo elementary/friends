@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-24 10:31+0000\n"
 "PO-Revision-Date: 2021-09-07 09:36+0000\n"
-"Last-Translator: XXTXTOP <xxtxtop@gmail.com>\n"
+"Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "friends/extra/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -25,16 +25,15 @@ msgstr "朋友"
 
 #: data/friends.appdata.xml.in:45
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
 
 #: data/friends.desktop.in:4
-#, fuzzy
 msgid "Find and connect with contacts"
-msgstr "查找并连接联系人"
+msgstr "查找联系人"
 
 #: data/friends.desktop.in:5
 msgid "Address Book"
-msgstr ""
+msgstr "通讯录"
 
 #: data/friends.desktop.in:7
 msgid "office-address-book"
