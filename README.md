@@ -8,8 +8,9 @@ You'll need the following dependencies:
 * folks
 * glib-2.0
 * gobject-2.0
-* granite >=0.5
-* gtk+-3.0
+* granite-7
+* adwaita-1
+* gtk4
 * meson
 * valac
 
