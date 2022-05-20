@@ -18,7 +18,7 @@
 *
 */
 
-public class Friends.MainWindow : Hdy.ApplicationWindow {
+public class Friends.MainWindow : Gtk.ApplicationWindow {
     private uint configure_id;
     private Folks.IndividualAggregator individual_aggregator;
     private Gtk.ListBox listbox;
@@ -33,27 +33,25 @@ public class Friends.MainWindow : Hdy.ApplicationWindow {
     }
 
     construct {
-        Hdy.init ();
-
-        var sidebar_header = new Hdy.HeaderBar () {
+        var sidebar_header = new Gtk.HeaderBar () {
             decoration_layout = "close:",
-            has_subtitle = false,
-            show_close_button = true
+            show_title_buttons = true
         };
 
         unowned Gtk.StyleContext sidebar_header_context = sidebar_header.get_style_context ();
         sidebar_header_context.add_class ("default-decoration");
-        sidebar_header_context.add_class (Gtk.STYLE_CLASS_FLAT);
+        sidebar_header_context.add_class ("titlebar");
+        sidebar_header_context.add_class (Granite.STYLE_CLASS_FLAT);
 
-        var individualview_header = new Hdy.HeaderBar () {
+        var individualview_header = new Gtk.HeaderBar () {
             decoration_layout = ":maximize",
-            has_subtitle = false,
-            show_close_button = true
+            show_title_buttons = true
         };
 
         unowned Gtk.StyleContext individualview_header_context = individualview_header.get_style_context ();
         individualview_header_context.add_class ("default-decoration");
-        individualview_header_context.add_class (Gtk.STYLE_CLASS_FLAT);
+        individualview_header_context.add_class ("titlebar");
+        individualview_header_context.add_class (Granite.STYLE_CLASS_FLAT);
 
         search_entry = new Gtk.SearchEntry ();
         search_entry.margin_start = search_entry.margin_end = 9;
@@ -65,17 +63,18 @@ public class Friends.MainWindow : Hdy.ApplicationWindow {
 
         listbox = new Gtk.ListBox ();
         listbox.activate_on_single_click = true;
-        listbox.expand = true;
+        listbox.hexpand = true;
+        listbox.vexpand = true;
         listbox.selection_mode = Gtk.SelectionMode.SINGLE;
         listbox.set_filter_func (filter_function);
         listbox.set_header_func (header_function);
         listbox.set_sort_func (sort_function);
 
-        var scrolledwindow = new Gtk.ScrolledWindow (null, null);
-        scrolledwindow.add (listbox);
+        var scrolledwindow = new Gtk.ScrolledWindow ();
+        scrolledwindow.child = listbox;
 
         var sidebar_grid = new Gtk.Grid ();
-        sidebar_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
+        // sidebar_grid.get_style_context ().add_class (Granite.STYLE_CLASS_SIDEBAR);
         sidebar_grid.attach (sidebar_header, 0, 0);
         sidebar_grid.attach (search_entry, 0, 1);
         sidebar_grid.attach (scrolledwindow, 0, 2);
@@ -87,10 +86,15 @@ public class Friends.MainWindow : Hdy.ApplicationWindow {
         individual_grid.attach (individual_view, 0, 1);
 
         var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-        paned.pack1 (sidebar_grid, false, false);
-        paned.pack2 (individual_grid, true, false);
+        paned.start_child = sidebar_grid;
+        paned.resize_start_child = false;
+        paned.shrink_start_child = false;
+        paned.end_child = individual_grid;
+        paned.resize_end_child = true;
+        paned.shrink_end_child = false;
 
-        add (paned);
+        child = paned;
+        set_titlebar (new Gtk.Label ("") { visible = false });
 
         individual_aggregator = Folks.IndividualAggregator.dup ();
         load_contacts.begin ();
@@ -109,15 +113,13 @@ public class Friends.MainWindow : Hdy.ApplicationWindow {
     private async void load_contacts () {
         individual_aggregator.individuals_changed_detailed.connect ((changes) => {
             foreach (var individual in changes.get (null)) {
-                listbox.add (new Friends.ContactRow (individual));
+                listbox.append (new Friends.ContactRow (individual));
             }
-            listbox.show_all ();
         });
 
         foreach (var individual in individual_aggregator.individuals.values) {
-            listbox.add (new Friends.ContactRow (individual));
+            listbox.append (new Friends.ContactRow (individual));
         }
-        listbox.show_all ();
 
         try {
             yield individual_aggregator.prepare ();
@@ -216,31 +218,31 @@ public class Friends.MainWindow : Hdy.ApplicationWindow {
         return displayname1.collate (displayname2);
     }
 
-    public override bool configure_event (Gdk.EventConfigure event) {
-        if (configure_id != 0) {
-            GLib.Source.remove (configure_id);
-        }
+    // public override bool configure_event (Gdk.EventConfigure event) {
+    //     if (configure_id != 0) {
+    //         GLib.Source.remove (configure_id);
+    //     }
 
-        configure_id = Timeout.add (100, () => {
-            configure_id = 0;
+    //     configure_id = Timeout.add (100, () => {
+    //         configure_id = 0;
 
-            if (is_maximized) {
-                Friends.Application.settings.set_boolean ("window-maximized", true);
-            } else {
-                Friends.Application.settings.set_boolean ("window-maximized", false);
+    //         if (is_maximized) {
+    //             Friends.Application.settings.set_boolean ("window-maximized", true);
+    //         } else {
+    //             Friends.Application.settings.set_boolean ("window-maximized", false);
 
-                Gdk.Rectangle rect;
-                get_allocation (out rect);
-                Friends.Application.settings.set ("window-size", "(ii)", rect.width, rect.height);
+    //             Gdk.Rectangle rect;
+    //             get_allocation (out rect);
+    //             Friends.Application.settings.set ("window-size", "(ii)", rect.width, rect.height);
 
-                int root_x, root_y;
-                get_position (out root_x, out root_y);
-                Friends.Application.settings.set ("window-position", "(ii)", root_x, root_y);
-            }
+    //             int root_x, root_y;
+    //             get_position (out root_x, out root_y);
+    //             Friends.Application.settings.set ("window-position", "(ii)", root_x, root_y);
+    //         }
 
-            return false;
-        });
+    //         return false;
+    //     });
 
-        return base.configure_event (event);
-    }
+    //     return base.configure_event (event);
+    // }
 }

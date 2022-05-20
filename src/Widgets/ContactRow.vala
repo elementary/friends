@@ -26,22 +26,22 @@ public class Friends.ContactRow : Gtk.ListBoxRow {
     }
 
     construct {
-        var avatar = new Hdy.Avatar (32, individual.display_name, true);
+        var avatar = new Adw.Avatar (32, individual.display_name, true);
 
-        if (individual.avatar != null) {
-            try {
-                individual.avatar.load (32, null);
-                avatar.set_image_load_func ((size) => {
-                    try {
-                        return new Gdk.Pixbuf.from_file_at_scale (individual.avatar.to_string (), size, size, true);
-                    } catch (Error e) {
-                        critical (e.message);
-                    }
-                });
-            } catch (Error e) {
-                critical (e.message);
-            }
-        }
+        // if (individual.avatar != null) {
+        //     try {
+        //         individual.avatar.load (32, null);
+        //         avatar.set_image_load_func ((size) => {
+        //             try {
+        //                 return new Gdk.Pixbuf.from_file_at_scale (individual.avatar.to_string (), size, size, true);
+        //             } catch (Error e) {
+        //                 critical (e.message);
+        //             }
+        //         });
+        //     } catch (Error e) {
+        //         critical (e.message);
+        //     }
+        // }
 
         string display_name;
         if (individual.structured_name != null) {
@@ -89,9 +89,9 @@ public class Friends.ContactRow : Gtk.ListBoxRow {
         var grid = new Gtk.Grid () {
             column_spacing = 12
         };
-        grid.add (avatar);
-        grid.add (individual_name);
+        grid.attach (avatar, 0, 0);
+        grid.attach (individual_name, 1, 0);
 
-        add (grid);
+        child = grid;
     }
 }
