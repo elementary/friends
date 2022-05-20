@@ -44,8 +44,8 @@ public class Friends.Application : Gtk.Application {
         settings.get ("window-size", "(ii)", out width, out height);
 
         main_window = new MainWindow (this) {
-            width_request = width,
-            height_request = height
+            default_width = width,
+            default_height = height
         };
 
         if (settings.get_boolean ("window-maximized")) {

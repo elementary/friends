@@ -33,17 +33,17 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
     }
 
     construct {
-        var sidebar_header = new Gtk.HeaderBar () {
-            decoration_layout = "close:",
-            show_title_buttons = true
+        var sidebar_header = new Gtk.WindowHandle () {
+            child = new Gtk.WindowControls (Gtk.PackType.START)
         };
         sidebar_header.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
         sidebar_header.add_css_class ("titlebar");
         sidebar_header.add_css_class (Granite.STYLE_CLASS_FLAT);
 
-        var individualview_header = new Gtk.HeaderBar () {
-            decoration_layout = ":maximize",
-            show_title_buttons = true
+        var individualview_header = new Gtk.WindowHandle () {
+            child = new Gtk.WindowControls (Gtk.PackType.END) {
+                halign = Gtk.Align.END
+            }
         };
         individualview_header.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
         individualview_header.add_css_class ("titlebar");
@@ -218,31 +218,10 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         return displayname1.collate (displayname2);
     }
 
-    // public override bool configure_event (Gdk.EventConfigure event) {
-    //     if (configure_id != 0) {
-    //         GLib.Source.remove (configure_id);
-    //     }
-
-    //     configure_id = Timeout.add (100, () => {
-    //         configure_id = 0;
-
-    //         if (is_maximized) {
-    //             Friends.Application.settings.set_boolean ("window-maximized", true);
-    //         } else {
-    //             Friends.Application.settings.set_boolean ("window-maximized", false);
-
-    //             Gdk.Rectangle rect;
-    //             get_allocation (out rect);
-    //             Friends.Application.settings.set ("window-size", "(ii)", rect.width, rect.height);
-
-    //             int root_x, root_y;
-    //             get_position (out root_x, out root_y);
-    //             Friends.Application.settings.set ("window-position", "(ii)", root_x, root_y);
-    //         }
-
-    //         return false;
-    //     });
-
-    //     return base.configure_event (event);
-    // }
+    public override void notify (ParamSpec pspec) {
+        if (pspec.get_name () == "default-width" || pspec.get_name () == "default-height") {
+            Friends.Application.settings.set_boolean ("window-maximized", this.maximized);
+            Friends.Application.settings.set ("window-size", "(ii)", this.default_width, this.default_height);
+        }
+    }
 }
