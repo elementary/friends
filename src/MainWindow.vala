@@ -99,6 +99,7 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         load_contacts.begin ();
 
         Friends.Application.settings.bind ("pane-position", paned, "position", GLib.SettingsBindFlags.DEFAULT);
+        Friends.Application.settings.bind ("window-maximized", this, "maximized", GLib.SettingsBindFlags.DEFAULT);
         Friends.Application.settings.bind ("window-width", this, "default-width", GLib.SettingsBindFlags.DEFAULT);
         Friends.Application.settings.bind ("window-height", this, "default-height", GLib.SettingsBindFlags.DEFAULT);
 
