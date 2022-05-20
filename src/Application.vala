@@ -39,9 +39,8 @@ public class Friends.Application : Gtk.Application {
             return;
         }
 
-        int width, height;
-
-        settings.get ("window-size", "(ii)", out width, out height);
+        var width = settings.get_int ("window-width");
+        var height = settings.get_int ("window-height");
 
         main_window = new MainWindow (this) {
             default_width = width,

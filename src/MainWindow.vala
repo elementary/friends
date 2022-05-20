@@ -19,7 +19,6 @@
 */
 
 public class Friends.MainWindow : Gtk.ApplicationWindow {
-    // private uint configure_id;
     private Folks.IndividualAggregator individual_aggregator;
     private Gtk.ListBox listbox;
     private Gtk.SearchEntry search_entry;
@@ -100,6 +99,8 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         load_contacts.begin ();
 
         Friends.Application.settings.bind ("pane-position", paned, "position", GLib.SettingsBindFlags.DEFAULT);
+        Friends.Application.settings.bind ("window-width", this, "default-width", GLib.SettingsBindFlags.DEFAULT);
+        Friends.Application.settings.bind ("window-height", this, "default-height", GLib.SettingsBindFlags.DEFAULT);
 
         listbox.row_selected.connect (() => {
             individual_view.individual = ((Friends.ContactRow) listbox.get_selected_row ()).individual;
@@ -216,12 +217,5 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         var displayname1 = ((Friends.ContactRow) row1).individual.display_name;
         var displayname2 = ((Friends.ContactRow) row2).individual.display_name;
         return displayname1.collate (displayname2);
-    }
-
-    public override void notify (ParamSpec pspec) {
-        if (pspec.get_name () == "default-width" || pspec.get_name () == "default-height") {
-            Friends.Application.settings.set_boolean ("window-maximized", this.maximized);
-            Friends.Application.settings.set ("window-size", "(ii)", this.default_width, this.default_height);
-        }
     }
 }

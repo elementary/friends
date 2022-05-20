@@ -28,20 +28,19 @@ public class Friends.ContactRow : Gtk.ListBoxRow {
     construct {
         var avatar = new Adw.Avatar (32, individual.display_name, true);
 
-        // if (individual.avatar != null) {
-        //     try {
-        //         individual.avatar.load (32, null);
-        //         avatar.set_image_load_func ((size) => {
-        //             try {
-        //                 return new Gdk.Pixbuf.from_file_at_scale (individual.avatar.to_string (), size, size, true);
-        //             } catch (Error e) {
-        //                 critical (e.message);
-        //             }
-        //         });
-        //     } catch (Error e) {
-        //         critical (e.message);
-        //     }
-        // }
+        if (individual.avatar != null) {
+            try {
+                individual.avatar.load (32, null);
+                var avatar_image = new Gtk.Image.from_file (individual.avatar.to_string ()) {
+                    width_request = avatar.size,
+                    height_request = avatar.size
+                };
+
+                avatar.set_custom_image (new Gtk.WidgetPaintable (avatar_image));
+            } catch (Error e) {
+                critical (e.message);
+            }
+        }
 
         string display_name;
         if (individual.structured_name != null) {
