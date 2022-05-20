@@ -47,23 +47,11 @@ public class Friends.Application : Gtk.Application {
             default_width = width,
             default_height = height
         };
+        main_window.present ();
 
         if (settings.get_boolean ("window-maximized")) {
             main_window.maximize ();
         }
-
-        main_window.present ();
-
-        var quit_action = new SimpleAction ("quit", null);
-
-        add_action (quit_action);
-        set_accels_for_action ("app.quit", {"<Control>q"});
-
-        quit_action.activate.connect (() => {
-            if (main_window != null) {
-                main_window.destroy ();
-            }
-        });
     }
 
     public static int main (string[] args) {
