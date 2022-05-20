@@ -19,7 +19,7 @@
 */
 
 public class Friends.MainWindow : Gtk.ApplicationWindow {
-    private uint configure_id;
+    // private uint configure_id;
     private Folks.IndividualAggregator individual_aggregator;
     private Gtk.ListBox listbox;
     private Gtk.SearchEntry search_entry;
@@ -37,44 +37,43 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
             decoration_layout = "close:",
             show_title_buttons = true
         };
-
-        unowned Gtk.StyleContext sidebar_header_context = sidebar_header.get_style_context ();
-        sidebar_header_context.add_class ("default-decoration");
-        sidebar_header_context.add_class ("titlebar");
-        sidebar_header_context.add_class (Granite.STYLE_CLASS_FLAT);
+        sidebar_header.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
+        sidebar_header.add_css_class ("titlebar");
+        sidebar_header.add_css_class (Granite.STYLE_CLASS_FLAT);
 
         var individualview_header = new Gtk.HeaderBar () {
             decoration_layout = ":maximize",
             show_title_buttons = true
         };
+        individualview_header.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
+        individualview_header.add_css_class ("titlebar");
+        individualview_header.add_css_class (Granite.STYLE_CLASS_FLAT);
 
-        unowned Gtk.StyleContext individualview_header_context = individualview_header.get_style_context ();
-        individualview_header_context.add_class ("default-decoration");
-        individualview_header_context.add_class ("titlebar");
-        individualview_header_context.add_class (Granite.STYLE_CLASS_FLAT);
+        search_entry = new Gtk.SearchEntry () {
+            margin_start = 9,
+            margin_end = 9,
+            margin_top = 3,
+            margin_bottom = 6,
+            hexpand = true,
+            placeholder_text = _("Search Friends"),
+            valign = Gtk.Align.CENTER
+        };
 
-        search_entry = new Gtk.SearchEntry ();
-        search_entry.margin_start = search_entry.margin_end = 9;
-        search_entry.margin_top = 3;
-        search_entry.margin_bottom = 6;
-        search_entry.hexpand = true;
-        search_entry.placeholder_text = _("Search Friends");
-        search_entry.valign = Gtk.Align.CENTER;
-
-        listbox = new Gtk.ListBox ();
-        listbox.activate_on_single_click = true;
-        listbox.hexpand = true;
-        listbox.vexpand = true;
-        listbox.selection_mode = Gtk.SelectionMode.SINGLE;
+        listbox = new Gtk.ListBox () {
+            activate_on_single_click = true,
+            hexpand = true,
+            vexpand = true,
+            selection_mode = Gtk.SelectionMode.SINGLE,
+        };
         listbox.set_filter_func (filter_function);
         listbox.set_header_func (header_function);
         listbox.set_sort_func (sort_function);
 
-        var scrolledwindow = new Gtk.ScrolledWindow ();
-        scrolledwindow.child = listbox;
+        var scrolledwindow = new Gtk.ScrolledWindow () {
+            child = listbox
+        };
 
         var sidebar_grid = new Gtk.Grid ();
-        // sidebar_grid.get_style_context ().add_class (Granite.STYLE_CLASS_SIDEBAR);
         sidebar_grid.attach (sidebar_header, 0, 0);
         sidebar_grid.attach (search_entry, 0, 1);
         sidebar_grid.attach (scrolledwindow, 0, 2);
@@ -85,16 +84,17 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         individual_grid.attach (individualview_header, 0, 0);
         individual_grid.attach (individual_view, 0, 1);
 
-        var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-        paned.start_child = sidebar_grid;
-        paned.resize_start_child = false;
-        paned.shrink_start_child = false;
-        paned.end_child = individual_grid;
-        paned.resize_end_child = true;
-        paned.shrink_end_child = false;
+        var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL) {
+            start_child = sidebar_grid,
+            resize_start_child = false,
+            shrink_start_child = false,
+            end_child = individual_grid,
+            resize_end_child = true,
+            shrink_end_child = false
+        };
 
         child = paned;
-        set_titlebar (new Gtk.Label ("") { visible = false });
+        titlebar = new Gtk.Label ("") { visible = false };
 
         individual_aggregator = Folks.IndividualAggregator.dup ();
         load_contacts.begin ();

@@ -39,20 +39,14 @@ public class Friends.Application : Gtk.Application {
             return;
         }
 
-        main_window = new MainWindow (this);
-
-        // int window_x, window_y;
-        // var rect = Gtk.Allocation ();
         int width, height;
 
-        // settings.get ("window-position", "(ii)", out window_x, out window_y);
         settings.get ("window-size", "(ii)", out width, out height);
 
-        // if (window_x != -1 || window_y != -1) {
-        //     main_window.move (window_x, window_y);
-        // }
-
-        main_window.set_size_request (width, height);
+        main_window = new MainWindow (this) {
+            width_request = width,
+            height_request = height
+        };
 
         if (settings.get_boolean ("window-maximized")) {
             main_window.maximize ();

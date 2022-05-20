@@ -81,10 +81,11 @@ public class Friends.ContactRow : Gtk.ListBoxRow {
             display_name = individual.display_name;
         }
 
-        var individual_name = new Gtk.Label (display_name);
-        individual_name.ellipsize = Pango.EllipsizeMode.MIDDLE;
-        individual_name.use_markup = true;
-        individual_name.xalign = 0;
+        var individual_name = new Gtk.Label (display_name) {
+            ellipsize = Pango.EllipsizeMode.MIDDLE,
+            use_markup = true,
+            xalign = 0
+        };
 
         var grid = new Gtk.Grid () {
             column_spacing = 12

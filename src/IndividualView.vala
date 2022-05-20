@@ -22,19 +22,19 @@ public class Friends.IndividualView : Gtk.Grid {
     public Folks.Individual? individual { get; set; }
 
     construct {
-        var placeholder = new Gtk.Label (_("No Contact Selected"));
-        placeholder.hexpand = true;
-        placeholder.vexpand = true;
+        var placeholder = new Gtk.Label (_("No Contact Selected")) {
+            hexpand = true,
+            vexpand = true
+        };
+        placeholder.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
+        placeholder.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
 
-        var placeholder_context = placeholder.get_style_context ();
-        placeholder_context.add_class (Granite.STYLE_CLASS_H2_LABEL);
-        placeholder_context.add_class (Granite.STYLE_CLASS_DIM_LABEL);
-
-        var individual_name = new Gtk.Label (null);
-        individual_name.ellipsize = Pango.EllipsizeMode.MIDDLE;
-        individual_name.hexpand = true;
-        individual_name.vexpand = true;
-        individual_name.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+        var individual_name = new Gtk.Label (null) {
+            ellipsize = Pango.EllipsizeMode.MIDDLE,
+            hexpand = true,
+            vexpand = true
+        };
+        individual_name.add_css_class (Granite.STYLE_CLASS_H3_LABEL);
 
         var details_grid = new Gtk.Grid ();
         details_grid.attach (individual_name, 0, 0);
