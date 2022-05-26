@@ -51,6 +51,17 @@ public class Friends.Application : Gtk.Application {
         if (settings.get_boolean ("window-maximized")) {
             main_window.maximize ();
         }
+
+        var quit_action = new SimpleAction ("quit", null);
+
+        add_action (quit_action);
+        set_accels_for_action ("app.quit", {"<Control>q"});
+
+        quit_action.activate.connect (() => {
+            if (main_window != null) {
+                main_window.destroy ();
+            }
+        });
     }
 
     public static int main (string[] args) {
