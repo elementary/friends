@@ -22,12 +22,7 @@ public class Friends.IndividualView : Gtk.Grid {
     public Folks.Individual? individual { get; set; }
 
     construct {
-        var placeholder = new Gtk.Label (_("No Contact Selected")) {
-            hexpand = true,
-            vexpand = true
-        };
-        placeholder.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
-        placeholder.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
+        var placeholder = new Granite.Placeholder (_("No Contact Selected"));
 
         var individual_name = new Gtk.Label (null) {
             ellipsize = Pango.EllipsizeMode.MIDDLE,
