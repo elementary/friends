@@ -39,18 +39,17 @@ public class Friends.Application : Gtk.Application {
             return;
         }
 
-        var width = settings.get_int ("window-width");
-        var height = settings.get_int ("window-height");
-
-        main_window = new MainWindow (this) {
-            default_width = width,
-            default_height = height
-        };
+        main_window = new MainWindow (this);
         main_window.present ();
+
+        settings.bind ("window-height", main_window, "default-height", SettingsBindFlags.DEFAULT);
+        settings.bind ("window-width", main_window, "default-width", SettingsBindFlags.DEFAULT);
 
         if (settings.get_boolean ("window-maximized")) {
             main_window.maximize ();
         }
+
+        settings.bind ("window-maximized", main_window, "maximized", SettingsBindFlags.SET);
 
         var quit_action = new SimpleAction ("quit", null);
 
