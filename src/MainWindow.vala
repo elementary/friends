@@ -64,6 +64,7 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
             vexpand = true,
             selection_mode = Gtk.SelectionMode.SINGLE,
         };
+        listbox.add_css_class ("rich-list");
         listbox.set_filter_func (filter_function);
         listbox.set_header_func (header_function);
         listbox.set_sort_func (sort_function);
