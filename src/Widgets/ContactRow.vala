@@ -26,18 +26,17 @@ public class Friends.ContactRow : Gtk.ListBoxRow {
     }
 
     construct {
-        var avatar = new Hdy.Avatar (32, individual.display_name, true);
+        var avatar = new Adw.Avatar (32, individual.display_name, true);
 
         if (individual.avatar != null) {
             try {
                 individual.avatar.load (32, null);
-                avatar.set_image_load_func ((size) => {
-                    try {
-                        return new Gdk.Pixbuf.from_file_at_scale (individual.avatar.to_string (), size, size, true);
-                    } catch (Error e) {
-                        critical (e.message);
-                    }
-                });
+                var avatar_image = new Gtk.Image.from_file (individual.avatar.to_string ()) {
+                    width_request = avatar.size,
+                    height_request = avatar.size
+                };
+
+                avatar.set_custom_image (new Gtk.WidgetPaintable (avatar_image));
             } catch (Error e) {
                 critical (e.message);
             }
@@ -81,17 +80,18 @@ public class Friends.ContactRow : Gtk.ListBoxRow {
             display_name = individual.display_name;
         }
 
-        var individual_name = new Gtk.Label (display_name);
-        individual_name.ellipsize = Pango.EllipsizeMode.MIDDLE;
-        individual_name.use_markup = true;
-        individual_name.xalign = 0;
+        var individual_name = new Gtk.Label (display_name) {
+            ellipsize = Pango.EllipsizeMode.MIDDLE,
+            use_markup = true,
+            xalign = 0
+        };
 
         var grid = new Gtk.Grid () {
             column_spacing = 12
         };
-        grid.add (avatar);
-        grid.add (individual_name);
+        grid.attach (avatar, 0, 0);
+        grid.attach (individual_name, 1, 0);
 
-        add (grid);
+        child = grid;
     }
 }

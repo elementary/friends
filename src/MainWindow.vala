@@ -18,8 +18,7 @@
 *
 */
 
-public class Friends.MainWindow : Hdy.ApplicationWindow {
-    private uint configure_id;
+public class Friends.MainWindow : Gtk.ApplicationWindow {
     private Folks.IndividualAggregator individual_aggregator;
     private Gtk.ListBox listbox;
     private Gtk.SearchEntry search_entry;
@@ -33,49 +32,49 @@ public class Friends.MainWindow : Hdy.ApplicationWindow {
     }
 
     construct {
-        Hdy.init ();
+        var sidebar_header = new Gtk.WindowHandle () {
+            child = new Gtk.WindowControls (Gtk.PackType.START)
+        };
+        sidebar_header.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
+        sidebar_header.add_css_class ("titlebar");
+        sidebar_header.add_css_class (Granite.STYLE_CLASS_FLAT);
 
-        var sidebar_header = new Hdy.HeaderBar () {
-            decoration_layout = "close:",
-            has_subtitle = false,
-            show_close_button = true
+        var individualview_header = new Gtk.WindowHandle () {
+            child = new Gtk.WindowControls (Gtk.PackType.END) {
+                halign = Gtk.Align.END
+            }
+        };
+        individualview_header.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
+        individualview_header.add_css_class ("titlebar");
+        individualview_header.add_css_class (Granite.STYLE_CLASS_FLAT);
+
+        search_entry = new Gtk.SearchEntry () {
+            margin_start = 9,
+            margin_end = 9,
+            margin_top = 3,
+            margin_bottom = 6,
+            hexpand = true,
+            placeholder_text = _("Search Friends"),
+            valign = Gtk.Align.CENTER
         };
 
-        unowned Gtk.StyleContext sidebar_header_context = sidebar_header.get_style_context ();
-        sidebar_header_context.add_class ("default-decoration");
-        sidebar_header_context.add_class (Gtk.STYLE_CLASS_FLAT);
-
-        var individualview_header = new Hdy.HeaderBar () {
-            decoration_layout = ":maximize",
-            has_subtitle = false,
-            show_close_button = true
+        listbox = new Gtk.ListBox () {
+            activate_on_single_click = true,
+            hexpand = true,
+            vexpand = true,
+            selection_mode = Gtk.SelectionMode.SINGLE,
         };
-
-        unowned Gtk.StyleContext individualview_header_context = individualview_header.get_style_context ();
-        individualview_header_context.add_class ("default-decoration");
-        individualview_header_context.add_class (Gtk.STYLE_CLASS_FLAT);
-
-        search_entry = new Gtk.SearchEntry ();
-        search_entry.margin_start = search_entry.margin_end = 9;
-        search_entry.margin_top = 3;
-        search_entry.margin_bottom = 6;
-        search_entry.hexpand = true;
-        search_entry.placeholder_text = _("Search Friends");
-        search_entry.valign = Gtk.Align.CENTER;
-
-        listbox = new Gtk.ListBox ();
-        listbox.activate_on_single_click = true;
-        listbox.expand = true;
-        listbox.selection_mode = Gtk.SelectionMode.SINGLE;
+        listbox.add_css_class ("rich-list");
+        listbox.add_css_class ("background");
         listbox.set_filter_func (filter_function);
         listbox.set_header_func (header_function);
         listbox.set_sort_func (sort_function);
 
-        var scrolledwindow = new Gtk.ScrolledWindow (null, null);
-        scrolledwindow.add (listbox);
+        var scrolledwindow = new Gtk.ScrolledWindow () {
+            child = listbox
+        };
 
         var sidebar_grid = new Gtk.Grid ();
-        sidebar_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
         sidebar_grid.attach (sidebar_header, 0, 0);
         sidebar_grid.attach (search_entry, 0, 1);
         sidebar_grid.attach (scrolledwindow, 0, 2);
@@ -83,14 +82,21 @@ public class Friends.MainWindow : Hdy.ApplicationWindow {
         var individual_view = new Friends.IndividualView ();
 
         var individual_grid = new Gtk.Grid ();
+        individual_grid.add_css_class (Granite.STYLE_CLASS_VIEW);
         individual_grid.attach (individualview_header, 0, 0);
         individual_grid.attach (individual_view, 0, 1);
 
-        var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-        paned.pack1 (sidebar_grid, false, false);
-        paned.pack2 (individual_grid, true, false);
+        var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL) {
+            start_child = sidebar_grid,
+            resize_start_child = false,
+            shrink_start_child = false,
+            end_child = individual_grid,
+            resize_end_child = true,
+            shrink_end_child = false
+        };
 
-        add (paned);
+        child = paned;
+        titlebar = new Gtk.Label ("") { visible = false };
 
         individual_aggregator = Folks.IndividualAggregator.dup ();
         load_contacts.begin ();
@@ -109,15 +115,13 @@ public class Friends.MainWindow : Hdy.ApplicationWindow {
     private async void load_contacts () {
         individual_aggregator.individuals_changed_detailed.connect ((changes) => {
             foreach (var individual in changes.get (null)) {
-                listbox.add (new Friends.ContactRow (individual));
+                listbox.append (new Friends.ContactRow (individual));
             }
-            listbox.show_all ();
         });
 
         foreach (var individual in individual_aggregator.individuals.values) {
-            listbox.add (new Friends.ContactRow (individual));
+            listbox.append (new Friends.ContactRow (individual));
         }
-        listbox.show_all ();
 
         try {
             yield individual_aggregator.prepare ();
@@ -214,33 +218,5 @@ public class Friends.MainWindow : Hdy.ApplicationWindow {
         var displayname1 = ((Friends.ContactRow) row1).individual.display_name;
         var displayname2 = ((Friends.ContactRow) row2).individual.display_name;
         return displayname1.collate (displayname2);
-    }
-
-    public override bool configure_event (Gdk.EventConfigure event) {
-        if (configure_id != 0) {
-            GLib.Source.remove (configure_id);
-        }
-
-        configure_id = Timeout.add (100, () => {
-            configure_id = 0;
-
-            if (is_maximized) {
-                Friends.Application.settings.set_boolean ("window-maximized", true);
-            } else {
-                Friends.Application.settings.set_boolean ("window-maximized", false);
-
-                Gdk.Rectangle rect;
-                get_allocation (out rect);
-                Friends.Application.settings.set ("window-size", "(ii)", rect.width, rect.height);
-
-                int root_x, root_y;
-                get_position (out root_x, out root_y);
-                Friends.Application.settings.set ("window-position", "(ii)", root_x, root_y);
-            }
-
-            return false;
-        });
-
-        return base.configure_event (event);
     }
 }
