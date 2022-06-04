@@ -15,7 +15,7 @@ jobs:
     - name: Install Dependencies
       run: |
         apt update
-        apt install -y libfolks-dev
+        apt install -y libfolks-dev libgranite-7-dev
     - name: Build
       env: 
         DESTDIR: out
