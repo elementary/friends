@@ -80,9 +80,9 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         sidebar_grid.attach (scrolledwindow, 0, 2);
 
         var individual_view = new Friends.IndividualView ();
-        individual_view.add_css_class (Granite.STYLE_CLASS_VIEW);
 
         var individual_grid = new Gtk.Grid ();
+        individual_grid.add_css_class (Granite.STYLE_CLASS_VIEW);
         individual_grid.attach (individualview_header, 0, 0);
         individual_grid.attach (individual_view, 0, 1);
 
