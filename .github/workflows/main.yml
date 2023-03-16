@@ -7,8 +7,12 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [stable, unstable, development-target]
     container:
-      image: elementary/docker:next-unstable
+      image: ghcr.io/elementary/docker:${{ matrix.version }}
 
     steps:
     - uses: actions/checkout@v1
@@ -17,7 +21,7 @@ jobs:
         apt update
         apt install -y libfolks-dev libgranite-7-dev libadwaita-1-dev
     - name: Build
-      env: 
+      env:
         DESTDIR: out
       run: |
         meson build
@@ -28,7 +32,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    container: 
+    container:
       image: valalang/lint
 
     steps:
