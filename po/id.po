@@ -8,8 +8,9 @@ msgstr ""
 "Project-Id-Version: io.elementary.friends\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-24 10:31+0000\n"
-"PO-Revision-Date: 2022-01-07 20:21+0000\n"
-"Last-Translator: Faisal Rachmadin <frachmadin@gmail.com>\n"
+"PO-Revision-Date: 2023-05-12 16:06+0000\n"
+"Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
+"io>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/friends/"
 "friends/id/>\n"
 "Language: id\n"
@@ -17,15 +18,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #: src/IndividualView.vala:25
 msgid "No Contact Selected"
-msgstr "Tidak Ada Kontak Dipilih"
+msgstr "Tidak Ada Kontak yang Dipilih"
 
 #: src/MainWindow.vala:31
 msgid "Friends"
-msgstr "Teman"
+msgstr "Teman-teman"
 
 #: src/MainWindow.vala:63
 msgid "Search Friends"
