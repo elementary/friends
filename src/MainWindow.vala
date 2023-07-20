@@ -39,15 +39,6 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         sidebar_header.add_css_class ("titlebar");
         sidebar_header.add_css_class (Granite.STYLE_CLASS_FLAT);
 
-        var individualview_header = new Gtk.WindowHandle () {
-            child = new Gtk.WindowControls (Gtk.PackType.END) {
-                halign = Gtk.Align.END
-            }
-        };
-        individualview_header.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
-        individualview_header.add_css_class ("titlebar");
-        individualview_header.add_css_class (Granite.STYLE_CLASS_FLAT);
-
         search_entry = new Gtk.SearchEntry () {
             margin_start = 9,
             margin_end = 9,
@@ -81,16 +72,11 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
 
         var individual_view = new Friends.IndividualView ();
 
-        var individual_grid = new Gtk.Grid ();
-        individual_grid.add_css_class (Granite.STYLE_CLASS_VIEW);
-        individual_grid.attach (individualview_header, 0, 0);
-        individual_grid.attach (individual_view, 0, 1);
-
         var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL) {
             start_child = sidebar_grid,
             resize_start_child = false,
             shrink_start_child = false,
-            end_child = individual_grid,
+            end_child = individual_view,
             resize_end_child = true,
             shrink_end_child = false
         };
