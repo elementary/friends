@@ -11,6 +11,9 @@ executable(
     'src/MainWindow.vala',
     'src/IndividualView.vala',
     'src/Widgets/ContactRow.vala',
+    'src/Widgets/NameGroup.vala',
+    'src/Widgets/EmailGroup/EmailGroup.vala',
+    'src/Widgets/EmailGroup/EmailGroupRow.vala',
     dependencies: [
         dependency('folks'),
         dependency('glib-2.0'),
