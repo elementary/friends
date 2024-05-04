@@ -42,7 +42,9 @@
     <content_attribute id="money-gambling">none</content_attribute>
   </content_rating>
   <translation type="gettext">io.elementary.friends</translation>
-  <developer_name>elementary, Inc.</developer_name>
+  <developer id="org.elementaryos">
+    <name>elementary, Inc.</name>
+  </developer>
   <url type="homepage">http://elementary.io</url>
   <url type="bugtracker">https://github.com/elementary/friends/issues</url>
 </component>
