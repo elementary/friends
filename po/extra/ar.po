@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-24 10:31+0000\n"
+"POT-Creation-Date: 2024-05-04 05:03+0000\n"
 "PO-Revision-Date: 2021-09-04 17:08+0000\n"
 "Last-Translator: Muhammad Al-Jayyousi <m7md.j99@protonmail.com>\n"
-"Language-Team: Arabic <https://l10n.elementary.io/projects/friends/extra/ar/>"
-"\n"
+"Language-Team: Arabic <https://l10n.elementary.io/projects/friends/extra/ar/"
+">\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,10 +24,6 @@ msgstr ""
 msgid "Friends"
 msgstr "الأصدقاء"
 
-#: data/friends.appdata.xml.in:45
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
-
 #: data/friends.desktop.in:4
 msgid "Find and connect with contacts"
 msgstr "قم بإيجاد جهات الاتصال والتواصل معها"
@@ -36,10 +32,9 @@ msgstr "قم بإيجاد جهات الاتصال والتواصل معها"
 msgid "Address Book"
 msgstr "دفتر العناوين"
 
-#: data/friends.desktop.in:7
-msgid "office-address-book"
-msgstr ""
-
 #: data/friends.desktop.in:8
 msgid "address;contacts;"
 msgstr "العناوين;جهات الاتصال;"
+
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."

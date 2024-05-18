@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-24 10:31+0000\n"
+"POT-Creation-Date: 2024-05-04 05:03+0000\n"
 "PO-Revision-Date: 2021-08-24 19:20+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/friends/extra/"
@@ -23,10 +23,6 @@ msgstr ""
 msgid "Friends"
 msgstr "Ismerősök"
 
-#: data/friends.appdata.xml.in:45
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
-
 #: data/friends.desktop.in:4
 msgid "Find and connect with contacts"
 msgstr "Keressen és lépjen kapcsolatba névjegyekkel"
@@ -35,10 +31,9 @@ msgstr "Keressen és lépjen kapcsolatba névjegyekkel"
 msgid "Address Book"
 msgstr "Névjegyzék"
 
-#: data/friends.desktop.in:7
-msgid "office-address-book"
-msgstr ""
-
 #: data/friends.desktop.in:8
 msgid "address;contacts;"
 msgstr "cím;névjegyek;kapcsolatok;"
+
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-24 10:31+0000\n"
+"POT-Creation-Date: 2024-05-04 05:03+0000\n"
 "PO-Revision-Date: 2023-05-12 16:06+0000\n"
 "Last-Translator: liimee <alt3753.7@gmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/friends/extra/"
@@ -23,10 +23,6 @@ msgstr ""
 msgid "Friends"
 msgstr "Teman-teman"
 
-#: data/friends.appdata.xml.in:45
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
-
 #: data/friends.desktop.in:4
 msgid "Find and connect with contacts"
 msgstr "Temukan dan terhubung dengan kontak"
@@ -35,10 +31,9 @@ msgstr "Temukan dan terhubung dengan kontak"
 msgid "Address Book"
 msgstr "Buku Alamat"
 
-#: data/friends.desktop.in:7
-msgid "office-address-book"
-msgstr ""
-
 #: data/friends.desktop.in:8
 msgid "address;contacts;"
 msgstr "alamat;kontak;"
+
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-24 10:31+0000\n"
+"POT-Creation-Date: 2024-05-04 05:03+0000\n"
 "PO-Revision-Date: 2021-08-21 17:08+0000\n"
 "Last-Translator: ntmt2903 <seseiu17011@student.hcmiu.edu.vn>\n"
 "Language-Team: Vietnamese <https://l10n.elementary.io/projects/friends/extra/"
@@ -23,10 +23,6 @@ msgstr ""
 msgid "Friends"
 msgstr "Bạn bè"
 
-#: data/friends.appdata.xml.in:45
-msgid "elementary, Inc."
-msgstr "Tập đoàn elementary"
-
 #: data/friends.desktop.in:4
 msgid "Find and connect with contacts"
 msgstr "Tìm và kết nối với những liên hệ"
@@ -35,10 +31,9 @@ msgstr "Tìm và kết nối với những liên hệ"
 msgid "Address Book"
 msgstr "Sổ địa chỉ"
 
-#: data/friends.desktop.in:7
-msgid "office-address-book"
-msgstr ""
-
 #: data/friends.desktop.in:8
 msgid "address;contacts;"
 msgstr "address;contact;địa chỉ;danh ba;liên hệ;"
+
+#~ msgid "elementary, Inc."
+#~ msgstr "Tập đoàn elementary"
