@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: io.elementary.friends\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 05:03+0000\n"
-"PO-Revision-Date: 2021-04-25 11:48+0000\n"
-"Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
+"PO-Revision-Date: 2024-05-20 03:13+0000\n"
+"Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/friends/friends/"
 "ru/>\n"
 "Language: ru\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.5\n"
 
 #: src/IndividualView.vala:25
 msgid "No Contact Selected"
-msgstr ""
+msgstr "Контакт не выбран"
 
 #: src/MainWindow.vala:30
 msgid "Friends"
@@ -30,8 +30,8 @@ msgstr "Друзья"
 
 #: src/MainWindow.vala:57
 msgid "Search Friends"
-msgstr ""
+msgstr "Поиск друзей"
 
 #: src/MainWindow.vala:164 src/MainWindow.vala:167
 msgid "#"
-msgstr ""
+msgstr "№"
