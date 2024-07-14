@@ -11,7 +11,7 @@ You'll need the following dependencies:
 * granite-7
 * adwaita-1
 * gtk4
-* meson
+* meson (>= 0.57.0)
 * valac
 
 Run `meson build` to configure the build environment. Change to the build directory and run `ninja` to build
