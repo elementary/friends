@@ -8,26 +8,29 @@ msgstr ""
 "Project-Id-Version: io.elementary.friends\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 05:03+0000\n"
-"PO-Revision-Date: 2018-12-27 16:06-0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-09-02 00:57+0000\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
+"friends/friends/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: src/IndividualView.vala:25
 msgid "No Contact Selected"
-msgstr ""
+msgstr "未選取聯絡人"
 
 #: src/MainWindow.vala:30
 msgid "Friends"
-msgstr ""
+msgstr "朋友"
 
 #: src/MainWindow.vala:57
 msgid "Search Friends"
-msgstr ""
+msgstr "搜尋朋友"
 
 #: src/MainWindow.vala:164 src/MainWindow.vala:167
 msgid "#"
-msgstr ""
+msgstr "#"
