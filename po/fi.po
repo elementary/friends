@@ -8,26 +8,28 @@ msgstr ""
 "Project-Id-Version: io.elementary.friends\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 05:03+0000\n"
-"PO-Revision-Date: 2018-12-27 16:06-0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-12-02 13:14+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"Language-Team: Finnish <https://l10n.elementary.io/projects/friends/friends/"
+"fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: src/IndividualView.vala:25
 msgid "No Contact Selected"
-msgstr ""
+msgstr "Yhteystietoa ei ole valittu"
 
 #: src/MainWindow.vala:30
 msgid "Friends"
-msgstr ""
+msgstr "Kaverit"
 
 #: src/MainWindow.vala:57
 msgid "Search Friends"
-msgstr ""
+msgstr "Etsi kavereita"
 
 #: src/MainWindow.vala:164 src/MainWindow.vala:167
 msgid "#"
