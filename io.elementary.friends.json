@@ -49,7 +49,15 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/evolution-data-server.git",
-                    "tag": "3.56.2"
+                    "tag": "3.56.2",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^([\\d.]+)$",
+                        /* Avoid API-breaking changes in libcamel */
+                        "versions": {
+                            "<": "3.57"
+                        }
+                    }
                 }
             ],
             "modules": [
@@ -87,7 +95,11 @@
                         {
                             "type": "git",
                             "url": "https://github.com/libical/libical.git",
-                            "tag": "v3.0.9"
+                            "tag": "v3.0.9",
+                            "x-checker-data": {
+                                "type": "git",
+                                "tag-pattern": "^v([\\d.]+)$"
+                            }
                         }
                     ]
                 }
@@ -108,7 +120,11 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/folks.git",
-                    "tag": "0.15.9"
+                    "tag": "0.15.9",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^([\\d.]+)$"
+                    }
                 }
             ]
         },
