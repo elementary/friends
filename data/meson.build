@@ -14,8 +14,8 @@ i18n.merge_file(
 )
 
 i18n.merge_file(
-    input: 'friends.appdata.xml.in',
-    output: meson.project_name() + '.appdata.xml',
+    input: 'friends.metainfo.xml.in',
+    output: meson.project_name() + '.metainfo.xml',
     po_dir: join_paths(meson.source_root(), 'po', 'extra'),
     type: 'xml',
     install: true,
