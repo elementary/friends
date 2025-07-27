@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-04 05:03+0000\n"
+"POT-Creation-Date: 2025-07-27 19:22+0000\n"
 "PO-Revision-Date: 2021-05-01 05:54+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/friends/extra/he/"
@@ -19,13 +19,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 4.4.2\n"
 
-#: data/friends.appdata.xml.in:7 data/friends.desktop.in:3
+#: data/friends.metainfo.xml.in:10 data/friends.desktop.in:3
 msgid "Friends"
 msgstr "חברים"
 
-#: data/friends.desktop.in:4
+#: data/friends.metainfo.xml.in:11 data/friends.desktop.in:4
 msgid "Find and connect with contacts"
 msgstr "חיפוש ויצירת קשר עם חברים"
+
+#: data/friends.metainfo.xml.in:13
+msgid "See and contact your friends from elementary OS"
+msgstr ""
 
 #: data/friends.desktop.in:5
 msgid "Address Book"
