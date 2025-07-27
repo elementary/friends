@@ -1,4 +1,7 @@
 # friends
+[![l10n](https://l10n.elementary.io/widgets/friends/-/svg-badge.svg)](https://l10n.elementary.io/projects/friends)
+
+![Screenshot](data/screenshot.png?raw=true)
 
 See and contact your friends from elementary OS
 
