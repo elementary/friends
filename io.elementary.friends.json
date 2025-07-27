@@ -53,7 +53,6 @@
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$",
-                        /* Avoid API-breaking changes in libcamel */
                         "versions": {
                             "<": "3.57"
                         }
