@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-27 19:22+0000\n"
-"PO-Revision-Date: 2021-04-26 20:42+0000\n"
+"PO-Revision-Date: 2025-07-28 22:55+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.elementary.io/projects/friends/extra/ca/"
-">\n"
+"Language-Team: Catalan <https://l10n.elementaryos.org/projects/friends/extra/"
+"ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: data/friends.metainfo.xml.in:10 data/friends.desktop.in:3
 msgid "Friends"
@@ -29,7 +29,7 @@ msgstr "Cerqueu i connecteu amb contactes"
 
 #: data/friends.metainfo.xml.in:13
 msgid "See and contact your friends from elementary OS"
-msgstr ""
+msgstr "Contacteu amb els amics d'elementary OS"
 
 #: data/friends.desktop.in:5
 msgid "Address Book"
