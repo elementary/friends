@@ -14,4 +14,4 @@ Standards-Version: 4.5.0
 Package: io.elementary.contacts
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: See and contact your contacts
+Description: See and get in touch with your contacts
