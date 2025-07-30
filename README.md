@@ -3,7 +3,7 @@
 
 ![Screenshot](data/screenshot.png?raw=true)
 
-See and contact your contacts from elementary OS
+See and get in touch with your contacts from elementary OS
 
 ## Building and Installation
 
