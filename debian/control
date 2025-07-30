@@ -1,4 +1,4 @@
-Source: io.elementary.friends
+Source: io.elementary.contacts
 Section: x11
 Priority: optional
 Maintainer: elementary, Inc. <builds@elementary.io>
@@ -11,7 +11,7 @@ Build-Depends: debhelper (>= 10.5.1),
                valac
 Standards-Version: 4.5.0
 
-Package: io.elementary.friends
+Package: io.elementary.contacts
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: See and contact your friends
+Description: See and contact your contacts
