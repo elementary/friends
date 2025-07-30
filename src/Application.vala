@@ -33,6 +33,15 @@ public class Friends.Application : Gtk.Application {
         settings = new Settings ("io.elementary.friends");
     }
 
+    protected override void startup () {
+        base.startup ();
+
+        Intl.setlocale (LocaleCategory.ALL, "");
+        Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+        Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+        Intl.textdomain (GETTEXT_PACKAGE);
+    }
+
     protected override void activate () {
         if (get_windows ().length () > 0) {
             get_windows ().data.present ();
