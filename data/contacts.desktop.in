@@ -1,9 +1,9 @@
 [Desktop Entry]
-Name=Friends
+Name=Contacts
 Comment=Find and connect with contacts
 GenericName=Address Book
-Exec=io.elementary.friends
-Icon=io.elementary.friends
+Exec=io.elementary.contacts
+Icon=io.elementary.contacts
 Keywords=address;contacts;
 Terminal=false
 Type=Application

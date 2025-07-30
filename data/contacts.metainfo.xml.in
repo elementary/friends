@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2018 elementary, Inc. <contact@elementary.io> -->
 <component type="desktop-application">
-  <id>io.elementary.friends</id>
-  <launchable type="desktop-id">io.elementary.friends.desktop</launchable>
-  <translation type="gettext">io.elementary.friends</translation>
+  <id>io.elementary.contacts</id>
+  <launchable type="desktop-id">io.elementary.contacts.desktop</launchable>
+  <translation type="gettext">io.elementary.contacts</translation>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
 
-  <name>Friends</name>
+  <name>Contacts</name>
   <summary>Find and connect with contacts</summary>
   <description>
-    <p>See and contact your friends from elementary OS</p>
+    <p>See and contact your contacts from elementary OS</p>
   </description>
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/elementary/friends/master/data/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/elementary/contacts/master/data/screenshot.png</image>
     </screenshot>
   </screenshots>
 
   <provides>
-    <binary>io.elementary.friends</binary>
+    <binary>io.elementary.contacts</binary>
   </provides>
 
   <content_rating type="oars-1.1"/>
 
   <url type="homepage">https://elementary.io</url>
-  <url type="bugtracker">https://github.com/elementary/friends/issues</url>
+  <url type="bugtracker">https://github.com/elementary/contacts/issues</url>
   <url type="donation">https://elementary.io/get-involved#funding</url>
-  <url type="help">https://github.com/elementary/friends/discussions/categories/q-a</url>
-  <url type="translate">https://l10n.elementary.io/engage/friends</url>
+  <url type="help">https://github.com/elementary/contacts/discussions/categories/q-a</url>
+  <url type="translate">https://l10n.elementary.io/engage/contacts</url>
 
   <developer id="org.elementaryos">
     <name>elementary, Inc.</name>

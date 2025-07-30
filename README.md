@@ -1,9 +1,9 @@
-# friends
-[![l10n](https://l10n.elementary.io/widgets/friends/-/svg-badge.svg)](https://l10n.elementary.io/projects/friends)
+# contacts
+[![l10n](https://l10n.elementary.io/widgets/contacts/-/svg-badge.svg)](https://l10n.elementary.io/projects/contacts)
 
 ![Screenshot](data/screenshot.png?raw=true)
 
-See and contact your friends from elementary OS
+See and contact your contacts from elementary OS
 
 ## Building and Installation
 
@@ -25,9 +25,9 @@ cd build
 ninja
 ```
 
-To install, use `ninja install`, then execute with `io.elementary.friends`
+To install, use `ninja install`, then execute with `io.elementary.contacts`
 
 ```bash
 ninja install
-io.elementary.friends
+io.elementary.contacts
 ```

@@ -1,4 +1,4 @@
-project('io.elementary.friends',
+project('io.elementary.contacts',
     'vala', 'c',
     meson_version: '>= 0.57.0'
 )
