@@ -1,9 +1,9 @@
 {
-    "id": "io.elementary.friends",
+    "id": "io.elementary.contacts",
     "runtime": "io.elementary.Platform",
     "runtime-version": "8.2",
     "sdk": "io.elementary.Sdk",
-    "command": "io.elementary.friends",
+    "command": "io.elementary.contacts",
     "finish-args": [
         "--share=ipc",
         "--share=network",
@@ -11,7 +11,7 @@
         "--socket=wayland",
         "--talk-name=org.gnome.evolution.dataserver.AddressBook10",
         "--talk-name=org.gnome.evolution.dataserver.Sources5",
-        "--metadata=X-DConf=migrate-path=/io/elementary/friends/"
+        "--metadata=X-DConf=migrate-path=/io/elementary/contacts/"
     ],
     "cleanup": [
         "/include",
@@ -128,7 +128,7 @@
             ]
         },
         {
-            "name": "friends",
+            "name": "contacts",
             "buildsystem": "meson",
             "sources": [
                 {
