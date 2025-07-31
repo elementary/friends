@@ -18,19 +18,19 @@
 *
 */
 
-public class Friends.Application : Gtk.Application {
+public class Contacts.Application : Gtk.Application {
     public static GLib.Settings settings;
     private MainWindow main_window;
 
     public Application () {
         Object (
-            application_id: "io.elementary.friends",
+            application_id: "io.elementary.contacts",
             flags: ApplicationFlags.FLAGS_NONE
         );
     }
 
     static construct {
-        settings = new Settings ("io.elementary.friends");
+        settings = new Settings ("io.elementary.contacts");
     }
 
     protected override void activate () {
@@ -64,6 +64,11 @@ public class Friends.Application : Gtk.Application {
     }
 
     public static int main (string[] args) {
+        Intl.setlocale (LocaleCategory.ALL, "");
+        Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+        Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+        Intl.textdomain (GETTEXT_PACKAGE);
+
         var app = new Application ();
         return app.run (args);
     }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-27 19:22+0000\n"
+"POT-Creation-Date: 2025-07-31 15:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,22 +17,22 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: data/friends.metainfo.xml.in:10 data/friends.desktop.in:3
-msgid "Friends"
+#: data/contacts.metainfo.xml.in:10 data/contacts.desktop.in:3
+msgid "Contacts"
 msgstr ""
 
-#: data/friends.metainfo.xml.in:11 data/friends.desktop.in:4
+#: data/contacts.metainfo.xml.in:11 data/contacts.desktop.in:4
 msgid "Find and connect with contacts"
 msgstr ""
 
-#: data/friends.metainfo.xml.in:13
-msgid "See and contact your friends from elementary OS"
+#: data/contacts.metainfo.xml.in:13
+msgid "See and get in touch with your contacts from elementary OS"
 msgstr ""
 
-#: data/friends.desktop.in:5
+#: data/contacts.desktop.in:5
 msgid "Address Book"
 msgstr ""
 
-#: data/friends.desktop.in:8
+#: data/contacts.desktop.in:8
 msgid "address;contacts;"
 msgstr ""
