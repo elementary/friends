@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.contacts\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-27 19:22+0000\n"
+"POT-Creation-Date: 2025-07-31 15:42+0000\n"
 "PO-Revision-Date: 2021-08-21 17:08+0000\n"
 "Last-Translator: Thien Bui <weblate.elementary@84436.ga>\n"
 "Language-Team: Vietnamese <https://l10n.elementary.io/projects/friends/"
@@ -24,13 +24,18 @@ msgid "No Contact Selected"
 msgstr "Không có Danh bạ được chọn"
 
 #: src/MainWindow.vala:30
-msgid "Friends"
-msgstr "Bạn bè"
+msgid "Contacts"
+msgstr ""
 
 #: src/MainWindow.vala:57
-msgid "Search Friends"
+#, fuzzy
+#| msgid "Search Friends"
+msgid "Search Contacts"
 msgstr "Tìm kiếm Bạn bè"
 
 #: src/MainWindow.vala:164 src/MainWindow.vala:167
 msgid "#"
 msgstr "#"
+
+#~ msgid "Friends"
+#~ msgstr "Bạn bè"

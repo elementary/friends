@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.contacts\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-27 19:22+0000\n"
+"POT-Creation-Date: 2025-07-31 15:42+0000\n"
 "PO-Revision-Date: 2021-07-06 22:40+0000\n"
 "Last-Translator: Niels Van Laerhoven <niels1995@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/friends/friends/nl/"
@@ -24,13 +24,18 @@ msgid "No Contact Selected"
 msgstr "Geen contact geselecteerd"
 
 #: src/MainWindow.vala:30
-msgid "Friends"
-msgstr "Vrienden"
+msgid "Contacts"
+msgstr ""
 
 #: src/MainWindow.vala:57
-msgid "Search Friends"
+#, fuzzy
+#| msgid "Search Friends"
+msgid "Search Contacts"
 msgstr "Zoek vrienden"
 
 #: src/MainWindow.vala:164 src/MainWindow.vala:167
 msgid "#"
 msgstr "#"
+
+#~ msgid "Friends"
+#~ msgstr "Vrienden"

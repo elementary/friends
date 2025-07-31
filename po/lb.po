@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.contacts\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-27 19:22+0000\n"
+"POT-Creation-Date: 2025-07-31 15:42+0000\n"
 "PO-Revision-Date: 2024-05-18 18:13+0000\n"
 "Last-Translator: Arno <arnoant21@gmail.com>\n"
 "Language-Team: Luxembourgish <https://l10n.elementary.io/projects/friends/"
@@ -24,13 +24,18 @@ msgid "No Contact Selected"
 msgstr "Kee Kontakt ausgewielt"
 
 #: src/MainWindow.vala:30
-msgid "Friends"
-msgstr "Frënn"
+msgid "Contacts"
+msgstr ""
 
 #: src/MainWindow.vala:57
-msgid "Search Friends"
+#, fuzzy
+#| msgid "Search Friends"
+msgid "Search Contacts"
 msgstr "Frënn sichen"
 
 #: src/MainWindow.vala:164 src/MainWindow.vala:167
 msgid "#"
 msgstr "#"
+
+#~ msgid "Friends"
+#~ msgstr "Frënn"
