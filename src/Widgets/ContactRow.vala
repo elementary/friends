@@ -18,7 +18,7 @@
 *
 */
 
-public class Friends.ContactRow : Gtk.ListBoxRow {
+public class Contacts.ContactRow : Gtk.ListBoxRow {
     public Folks.Individual individual { get; construct; }
 
     public ContactRow (Folks.Individual individual) {

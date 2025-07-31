@@ -18,7 +18,7 @@
 *
 */
 
-public class Friends.IndividualView : Gtk.Grid {
+public class Contacts.IndividualView : Gtk.Grid {
     public Folks.Individual? individual { get; set; }
 
     construct {

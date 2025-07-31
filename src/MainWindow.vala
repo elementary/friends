@@ -18,7 +18,7 @@
 *
 */
 
-public class Friends.MainWindow : Gtk.ApplicationWindow {
+public class Contacts.MainWindow : Gtk.ApplicationWindow {
     private Folks.IndividualAggregator individual_aggregator;
     private Gtk.ListBox listbox;
     private Gtk.SearchEntry search_entry;
@@ -27,7 +27,7 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         Object (
             application: application,
             icon_name: "office-address-book",
-            title: _("Friends")
+            title: _("Contacts")
         );
     }
 
@@ -54,7 +54,7 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
             margin_top = 3,
             margin_bottom = 6,
             hexpand = true,
-            placeholder_text = _("Search Friends"),
+            placeholder_text = _("Search Contacts"),
             valign = Gtk.Align.CENTER
         };
 
@@ -79,7 +79,7 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         sidebar_grid.attach (search_entry, 0, 1);
         sidebar_grid.attach (scrolledwindow, 0, 2);
 
-        var individual_view = new Friends.IndividualView ();
+        var individual_view = new Contacts.IndividualView ();
 
         var individual_grid = new Gtk.Grid ();
         individual_grid.add_css_class (Granite.STYLE_CLASS_VIEW);
@@ -101,10 +101,10 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
         individual_aggregator = Folks.IndividualAggregator.dup ();
         load_contacts.begin ();
 
-        Friends.Application.settings.bind ("pane-position", paned, "position", GLib.SettingsBindFlags.DEFAULT);
+        Contacts.Application.settings.bind ("pane-position", paned, "position", GLib.SettingsBindFlags.DEFAULT);
 
         listbox.row_selected.connect (() => {
-            individual_view.individual = ((Friends.ContactRow) listbox.get_selected_row ()).individual;
+            individual_view.individual = ((Contacts.ContactRow) listbox.get_selected_row ()).individual;
         });
 
         search_entry.search_changed.connect (() => {
@@ -115,12 +115,12 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
     private async void load_contacts () {
         individual_aggregator.individuals_changed_detailed.connect ((changes) => {
             foreach (var individual in changes.get (null)) {
-                listbox.append (new Friends.ContactRow (individual));
+                listbox.append (new Contacts.ContactRow (individual));
             }
         });
 
         foreach (var individual in individual_aggregator.individuals.values) {
-            listbox.append (new Friends.ContactRow (individual));
+            listbox.append (new Contacts.ContactRow (individual));
         }
 
         try {
@@ -132,7 +132,7 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
 
     [CCode (instance_pos = -1)]
     private bool filter_function (Gtk.ListBoxRow row) {
-        var individual = ((Friends.ContactRow) row).individual;
+        var individual = ((Contacts.ContactRow) row).individual;
 
         if (individual.structured_name == null && !individual.is_favourite) {
             return false;
@@ -148,10 +148,10 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
     }
 
     private void header_function (Gtk.ListBoxRow row1, Gtk.ListBoxRow? row2) {
-        var name1 = ((Friends.ContactRow) row1).individual.structured_name;
+        var name1 = ((Contacts.ContactRow) row1).individual.structured_name;
         Folks.StructuredName name2 = null;
         if (row2 != null) {
-            name2 = ((Friends.ContactRow) row2).individual.structured_name;
+            name2 = ((Contacts.ContactRow) row2).individual.structured_name;
         }
 
         string header_string = null;
@@ -188,8 +188,8 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
 
     [CCode (instance_pos = -1)]
     private int sort_function (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2) {
-        var name1 = ((Friends.ContactRow) row1).individual.structured_name;
-        var name2 = ((Friends.ContactRow) row2).individual.structured_name;
+        var name1 = ((Contacts.ContactRow) row1).individual.structured_name;
+        var name2 = ((Contacts.ContactRow) row2).individual.structured_name;
 
         if (name1 != null) {
             if (name2 == null) {
@@ -215,8 +215,8 @@ public class Friends.MainWindow : Gtk.ApplicationWindow {
             return 1;
         }
 
-        var displayname1 = ((Friends.ContactRow) row1).individual.display_name;
-        var displayname2 = ((Friends.ContactRow) row2).individual.display_name;
+        var displayname1 = ((Contacts.ContactRow) row1).individual.display_name;
+        var displayname2 = ((Contacts.ContactRow) row2).individual.display_name;
         return displayname1.collate (displayname2);
     }
 }
