@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-01 15:50+0000\n"
 "PO-Revision-Date: 2025-08-01 22:50+0000\n"
-"Last-Translator: lenify <lenify@tutanota.com>\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/contacts/"
 "extra/be/>\n"
 "Language: be\n"
@@ -34,7 +34,7 @@ msgstr "Праглядайце і злучайцеся з вашымі кант�
 
 #: data/contacts.metainfo.xml.in:35
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
 
 #: data/contacts.desktop.in:5
 msgid "Address Book"
