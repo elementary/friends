@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-27 19:22+0000\n"
+"POT-Creation-Date: 2025-08-01 15:50+0000\n"
 "PO-Revision-Date: 2025-07-28 22:55+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementaryos.org/projects/friends/extra/"
@@ -19,28 +19,34 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: data/friends.metainfo.xml.in:10 data/friends.desktop.in:3
-msgid "Friends"
-msgstr "Amistats"
+#: data/contacts.metainfo.xml.in:10 data/contacts.desktop.in:3
+msgid "Contacts"
+msgstr ""
 
-#: data/friends.metainfo.xml.in:11 data/friends.desktop.in:4
+#: data/contacts.metainfo.xml.in:11 data/contacts.desktop.in:4
 msgid "Find and connect with contacts"
 msgstr "Cerqueu i connecteu amb contactes"
 
-#: data/friends.metainfo.xml.in:13
-msgid "See and contact your friends from elementary OS"
+#: data/contacts.metainfo.xml.in:13
+#, fuzzy
+#| msgid "See and contact your friends from elementary OS"
+msgid "See and get in touch with your contacts from elementary OS"
 msgstr "Contacteu amb els amics d'elementary OS"
 
-#: data/friends.desktop.in:5
+#: data/contacts.metainfo.xml.in:35
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
+
+#: data/contacts.desktop.in:5
 msgid "Address Book"
 msgstr "Llibreta d'adreces"
 
-#: data/friends.desktop.in:8
+#: data/contacts.desktop.in:8
 msgid "address;contacts;"
 msgstr "adreça;contactes;"
 
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
+#~ msgid "Friends"
+#~ msgstr "Amistats"
 
 #~ msgid "office-address-book"
 #~ msgstr "office-address-book"

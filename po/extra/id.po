@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-27 19:22+0000\n"
+"POT-Creation-Date: 2025-08-01 15:50+0000\n"
 "PO-Revision-Date: 2023-05-12 16:06+0000\n"
 "Last-Translator: liimee <alt3753.7@gmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/friends/extra/"
@@ -19,25 +19,29 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.17\n"
 
-#: data/friends.metainfo.xml.in:10 data/friends.desktop.in:3
-msgid "Friends"
-msgstr "Teman-teman"
+#: data/contacts.metainfo.xml.in:10 data/contacts.desktop.in:3
+msgid "Contacts"
+msgstr ""
 
-#: data/friends.metainfo.xml.in:11 data/friends.desktop.in:4
+#: data/contacts.metainfo.xml.in:11 data/contacts.desktop.in:4
 msgid "Find and connect with contacts"
 msgstr "Temukan dan terhubung dengan kontak"
 
-#: data/friends.metainfo.xml.in:13
-msgid "See and contact your friends from elementary OS"
+#: data/contacts.metainfo.xml.in:13
+msgid "See and get in touch with your contacts from elementary OS"
 msgstr ""
 
-#: data/friends.desktop.in:5
+#: data/contacts.metainfo.xml.in:35
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
+
+#: data/contacts.desktop.in:5
 msgid "Address Book"
 msgstr "Buku Alamat"
 
-#: data/friends.desktop.in:8
+#: data/contacts.desktop.in:8
 msgid "address;contacts;"
 msgstr "alamat;kontak;"
 
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
+#~ msgid "Friends"
+#~ msgstr "Teman-teman"
