@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-01 15:50+0000\n"
-"PO-Revision-Date: 2025-07-29 23:55+0000\n"
+"PO-Revision-Date: 2025-08-01 22:50+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementaryos.org/projects/friends/"
+"Language-Team: Japanese <https://l10n.elementaryos.org/projects/contacts/"
 "extra/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -21,15 +21,13 @@ msgstr ""
 
 #: data/contacts.metainfo.xml.in:10 data/contacts.desktop.in:3
 msgid "Contacts"
-msgstr ""
+msgstr "連絡先"
 
 #: data/contacts.metainfo.xml.in:11 data/contacts.desktop.in:4
 msgid "Find and connect with contacts"
 msgstr "連絡先を検索して連絡を取ります"
 
 #: data/contacts.metainfo.xml.in:13
-#, fuzzy
-#| msgid "See and contact your friends from elementary OS"
 msgid "See and get in touch with your contacts from elementary OS"
 msgstr "elementary OS 上で連絡先を確認して連絡を取ります"
 
